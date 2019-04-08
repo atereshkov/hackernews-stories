@@ -77,11 +77,9 @@
 		A3C8AD42225BB76C001717DC /* hackernews-stories */ = {
 			isa = PBXGroup;
 			children = (
-				A3C8AD43225BB76C001717DC /* AppDelegate.swift */,
+				A3C8AD63225BB8E9001717DC /* classes */,
+				A3C8AD64225BB8EF001717DC /* resources */,
 				A3C8AD45225BB76C001717DC /* ViewController.swift */,
-				A3C8AD47225BB76C001717DC /* Main.storyboard */,
-				A3C8AD4A225BB76E001717DC /* Assets.xcassets */,
-				A3C8AD4C225BB76E001717DC /* LaunchScreen.storyboard */,
 				A3C8AD4F225BB76E001717DC /* Info.plist */,
 			);
 			path = "hackernews-stories";
@@ -94,6 +92,64 @@
 				A3C8AD5A225BB76E001717DC /* Info.plist */,
 			);
 			path = "hackernews-storiesTests";
+			sourceTree = "<group>";
+		};
+		A3C8AD63225BB8E9001717DC /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD65225BB8F8001717DC /* core */,
+				A3C8AD67225BB90C001717DC /* ui */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		A3C8AD64225BB8EF001717DC /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD66225BB902001717DC /* images */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		A3C8AD65225BB8F8001717DC /* core */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD43225BB76C001717DC /* AppDelegate.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		A3C8AD66225BB902001717DC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD4A225BB76E001717DC /* Assets.xcassets */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		A3C8AD67225BB90C001717DC /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD69225BB91D001717DC /* launchscreen */,
+				A3C8AD68225BB918001717DC /* main */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		A3C8AD68225BB918001717DC /* main */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD47225BB76C001717DC /* Main.storyboard */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		A3C8AD69225BB91D001717DC /* launchscreen */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD4C225BB76E001717DC /* LaunchScreen.storyboard */,
+			);
+			path = launchscreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
