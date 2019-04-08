@@ -28,6 +28,7 @@
 		A3C8AD8E225BBDBF001717DC /* MainViewModelOutputsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD8D225BBDBF001717DC /* MainViewModelOutputsType.swift */; };
 		A3C8AD92225BBE5D001717DC /* UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD91225BBE5D001717DC /* UINavigationItem.swift */; };
 		A3C8AD95225BC2A7001717DC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3C8AD94225BC2A7001717DC /* Colors.xcassets */; };
+		A3C8AD99225BC5DA001717DC /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD98225BC5DA001717DC /* Story.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		A3C8AD8D225BBDBF001717DC /* MainViewModelOutputsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelOutputsType.swift; sourceTree = "<group>"; };
 		A3C8AD91225BBE5D001717DC /* UINavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationItem.swift; sourceTree = "<group>"; };
 		A3C8AD94225BC2A7001717DC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		A3C8AD98225BC5DA001717DC /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C8AD6A225BB9D5001717DC /* app */,
+				A3C8AD96225BC598001717DC /* models */,
 				A3C8AD67225BB90C001717DC /* modules */,
 			);
 			path = classes;
@@ -261,6 +264,22 @@
 			path = colors;
 			sourceTree = "<group>";
 		};
+		A3C8AD96225BC598001717DC /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD97225BC59F001717DC /* dto */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		A3C8AD97225BC59F001717DC /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				A3C8AD98225BC5DA001717DC /* Story.swift */,
+			);
+			path = dto;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,6 +385,7 @@
 				A3C8AD6F225BBA13001717DC /* AppRouter.swift in Sources */,
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
 				A3C8AD7E225BBC6D001717DC /* MainView.swift in Sources */,
+				A3C8AD99225BC5DA001717DC /* Story.swift in Sources */,
 				A3C8AD7C225BBC31001717DC /* MainRouter.swift in Sources */,
 				A3C8AD46225BB76C001717DC /* ViewController.swift in Sources */,
 				A3C8AD75225BBA55001717DC /* BaseRouter.swift in Sources */,
