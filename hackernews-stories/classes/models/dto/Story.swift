@@ -17,7 +17,7 @@ protocol StoryType {
     var descendants: Int? { get }
     
     /// The username of the item's author
-    var by: Int? { get }
+    var by: String? { get }
     
     /// The story's score
     var score: Int? { get }
@@ -49,7 +49,7 @@ struct Story: StoryType, Equatable, Decodable {
     
     let id: Int
     let descendants: Int?
-    let by: Int?
+    let by: String?
     let score: Int?
     let time: Double?
     let title: String?

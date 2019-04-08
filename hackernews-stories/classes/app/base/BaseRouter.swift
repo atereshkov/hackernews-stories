@@ -10,13 +10,16 @@ import UIKit
 
 protocol RouterType: class {
     var view: UIViewController? { get }
+    var session: SessionType { get }
 }
 
 class BaseRouter: RouterType {
     
+    let session: SessionType
     private(set) weak var view: UIViewController?
     
-    init(view: UIViewController) {
+    init(session: SessionType, view: UIViewController) {
+        self.session = session
         self.view = view
     }
     

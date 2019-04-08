@@ -12,7 +12,12 @@ protocol ViewModelType: class {
 
 class BaseViewModel<Router: RouterType>: ViewModelType {
     
+    let session: SessionType
     var router: Router?
+    
+    init(session: SessionType) {
+        self.session = session
+    }
     
     func onViewDidLoad() {
         

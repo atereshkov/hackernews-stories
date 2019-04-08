@@ -15,10 +15,10 @@ protocol MainRoutable {
 extension MainRoutable where Self: RouterType {
     
     func goToMain(window: UIWindow) {
-        let viewModel = MainViewModel()
+        let viewModel = MainViewModel(session: session)
         guard let view = targetView else { return }
         view.viewModel = viewModel
-        let router = MainRouter(view: view)
+        let router = MainRouter(session: session, view: view)
         viewModel.router = router
         
         let rootVC = UINavigationController(rootViewController: view)

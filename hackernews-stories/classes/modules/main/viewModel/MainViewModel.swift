@@ -10,10 +10,16 @@ import Foundation
 
 final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     
-    override init() {
-        super.init()
+    private let storyService: StoryServiceProtocol
+    
+    override init(session: SessionType) {
+        self.storyService = session.resolve()
+        super.init(session: session)
         
-        setup()
+        storyService.getItem(id: 19592771) { story, error in
+            guard let story = story else { return }
+            Swift.print(story)
+        }
     }
     
 }

@@ -11,12 +11,14 @@ import UIKit
 final class AppRouter: AppRouterProtocol {
     
     private(set) var window: UIWindow
+    private(set) var session: SessionType
     
     var rootViewController: UIViewController? {
         return window.rootViewController
     }
     
-    init(window: UIWindow) {
+    init(session: SessionType, window: UIWindow) {
+        self.session = session
         self.window = window
     }
     
@@ -29,7 +31,7 @@ final class AppRouter: AppRouterProtocol {
         window.rootViewController = vc
         window.makeKeyAndVisible()
         
-        let router = InitialMainRouter(view: vc)
+        let router = InitialMainRouter(session: session, view: vc)
         router.goToMain(window: window)
     }
     

@@ -12,6 +12,7 @@ protocol AppRouterProtocol {
     func start(animated: Bool)
     
     var window: UIWindow { get }
+    var session: SessionType { get }
     
     var rootViewController: UIViewController? { get }
 }
