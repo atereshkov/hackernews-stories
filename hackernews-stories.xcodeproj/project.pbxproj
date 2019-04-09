@@ -46,6 +46,8 @@
 		A3C8ADC4225BF5DE001717DC /* ContainerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADC3225BF5DE001717DC /* ContainerRecord.swift */; };
 		A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADC5225BF613001717DC /* SessionType.swift */; };
 		A3EE71B7225D1BF300F5A12B /* MainCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainCellView.swift */; };
+		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
+		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 		A3C8ADC3225BF5DE001717DC /* ContainerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerRecord.swift; sourceTree = "<group>"; };
 		A3C8ADC5225BF613001717DC /* SessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
 		A3EE71B6225D1BF300F5A12B /* MainCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellView.swift; sourceTree = "<group>"; };
+		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
+		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +325,7 @@
 		A3C8AD9A225BCAE7001717DC /* network */ = {
 			isa = PBXGroup;
 			children = (
+				A3EE71B8225D1CCC00F5A12B /* decoder */,
 				A3C8ADA3225BD11A001717DC /* endpoints */,
 				A3C8AD9B225BCB4C001717DC /* ResponseDataType.swift */,
 				A3C8AD9D225BCB6C001717DC /* RequestHTTPMethod.swift */,
@@ -369,6 +374,15 @@
 				A3EE71B6225D1BF300F5A12B /* MainCellView.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		A3EE71B8225D1CCC00F5A12B /* decoder */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */,
+				A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */,
+			);
+			path = decoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,6 +505,7 @@
 				A3C8ADB1225BD803001717DC /* RequestResponse.swift in Sources */,
 				A3C8AD75225BBA55001717DC /* BaseRouter.swift in Sources */,
 				A3C8AD79225BBA8D001717DC /* MainRoutable.swift in Sources */,
+				A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */,
 				A3C8ADAD225BD66D001717DC /* NetworkRequestExecutor.swift in Sources */,
 				A3C8AD9E225BCB6C001717DC /* RequestHTTPMethod.swift in Sources */,
 				A3C8AD6D225BB9F3001717DC /* AppRouterProtocol.swift in Sources */,
@@ -500,6 +515,7 @@
 				A3C8ADA9225BD580001717DC /* RequestExecutor.swift in Sources */,
 				A3C8AD77225BBA71001717DC /* InitialMainRouter.swift in Sources */,
 				A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */,
+				A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */,
 				A3EE71B7225D1BF300F5A12B /* MainCellView.swift in Sources */,
 				A3C8AD8A225BBD97001717DC /* MainViewModelType.swift in Sources */,
 				A3C8AD84225BBCDD001717DC /* MainViewModel.swift in Sources */,

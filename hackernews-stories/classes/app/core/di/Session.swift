@@ -16,9 +16,10 @@ final class Session: SessionType {
         let configuration = APIConfiguration(.dev, baseURL: "https://hacker-news.firebaseio.com/v0/")
         let executorFactory = RequestExecutorFactory(configuration: configuration)
         let networkRequestExecutor = executorFactory.makeNetworkExecutor()
+        let jsonDecoder = JSONDecoderService()
         
         container = {
-            let storyService = StoryService(requestExecutor: networkRequestExecutor)
+            let storyService = StoryService(requestExecutor: networkRequestExecutor, jsonDecoder: jsonDecoder)
             container.addService { storyService as StoryServiceProtocol }
             return container
         }()
