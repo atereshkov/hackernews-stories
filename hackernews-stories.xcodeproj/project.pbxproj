@@ -45,13 +45,15 @@
 		A3C8ADBE225BE616001717DC /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADBD225BE616001717DC /* Container.swift */; };
 		A3C8ADC4225BF5DE001717DC /* ContainerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADC3225BF5DE001717DC /* ContainerRecord.swift */; };
 		A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADC5225BF613001717DC /* SessionType.swift */; };
-		A3EE71B7225D1BF300F5A12B /* MainCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainCellView.swift */; };
+		A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
-		A3EE71BE225D1FF500F5A12B /* MainCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3EE71BD225D1FF500F5A12B /* MainCellView.xib */; };
+		A3EE71BE225D1FF500F5A12B /* MainViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3EE71BD225D1FF500F5A12B /* MainViewCell.xib */; };
 		A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */; };
 		A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */; };
 		A3EE71C5225D233800F5A12B /* ConsoleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C4225D233800F5A12B /* ConsoleLog.swift */; };
+		A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C7225D24B800F5A12B /* MainViewTableDelegate.swift */; };
+		A3EE71CA225D24C300F5A12B /* MainViewTableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,13 +109,15 @@
 		A3C8ADBD225BE616001717DC /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		A3C8ADC3225BF5DE001717DC /* ContainerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerRecord.swift; sourceTree = "<group>"; };
 		A3C8ADC5225BF613001717DC /* SessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
-		A3EE71B6225D1BF300F5A12B /* MainCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellView.swift; sourceTree = "<group>"; };
+		A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
-		A3EE71BD225D1FF500F5A12B /* MainCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCellView.xib; sourceTree = "<group>"; };
+		A3EE71BD225D1FF500F5A12B /* MainViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewCell.xib; sourceTree = "<group>"; };
 		A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Cell.swift"; sourceTree = "<group>"; };
 		A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Identifier.swift"; sourceTree = "<group>"; };
 		A3EE71C4225D233800F5A12B /* ConsoleLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLog.swift; sourceTree = "<group>"; };
+		A3EE71C7225D24B800F5A12B /* MainViewTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableDelegate.swift; sourceTree = "<group>"; };
+		A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableDatasource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +278,8 @@
 				A3EE71B5225D1BDF00F5A12B /* cell */,
 				A3C8AD47225BB76C001717DC /* Main.storyboard */,
 				A3C8AD7D225BBC6D001717DC /* MainView.swift */,
+				A3EE71C7225D24B800F5A12B /* MainViewTableDelegate.swift */,
+				A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -382,8 +388,8 @@
 		A3EE71B5225D1BDF00F5A12B /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				A3EE71B6225D1BF300F5A12B /* MainCellView.swift */,
-				A3EE71BD225D1FF500F5A12B /* MainCellView.xib */,
+				A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */,
+				A3EE71BD225D1FF500F5A12B /* MainViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -497,7 +503,7 @@
 				A3C8AD4E225BB76E001717DC /* LaunchScreen.storyboard in Resources */,
 				A3C8AD95225BC2A7001717DC /* Colors.xcassets in Resources */,
 				A3C8AD4B225BB76E001717DC /* Assets.xcassets in Resources */,
-				A3EE71BE225D1FF500F5A12B /* MainCellView.xib in Resources */,
+				A3EE71BE225D1FF500F5A12B /* MainViewCell.xib in Resources */,
 				A3C8AD49225BB76C001717DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3C8AD6F225BBA13001717DC /* AppRouter.swift in Sources */,
+				A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */,
 				A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */,
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,
@@ -524,6 +531,7 @@
 				A3C8AD9C225BCB4C001717DC /* ResponseDataType.swift in Sources */,
 				A3C8ADAB225BD627001717DC /* RequestExecutorFactory.swift in Sources */,
 				A3C8ADA0225BCB8D001717DC /* RequestParameters.swift in Sources */,
+				A3EE71CA225D24C300F5A12B /* MainViewTableDatasource.swift in Sources */,
 				A3C8ADAF225BD7E4001717DC /* NetworkError.swift in Sources */,
 				A3C8ADA2225BCBAB001717DC /* RequestData.swift in Sources */,
 				A3C8AD7E225BBC6D001717DC /* MainView.swift in Sources */,
@@ -548,7 +556,7 @@
 				A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */,
 				A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */,
 				A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */,
-				A3EE71B7225D1BF300F5A12B /* MainCellView.swift in Sources */,
+				A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */,
 				A3C8AD8A225BBD97001717DC /* MainViewModelType.swift in Sources */,
 				A3C8AD84225BBCDD001717DC /* MainViewModel.swift in Sources */,
 				A3C8ADA5225BD13C001717DC /* StoryRequest.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  MainCellView.swift
+//  MainViewCell.swift
 //  hackernews-stories
 //
 //  Created by Alexander Tereshkov on 4/9/19.
@@ -18,6 +18,10 @@ final class MainViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+    }
+    
+    func set(title: String) {
+        titleLabel.text = title
     }
     
 }
