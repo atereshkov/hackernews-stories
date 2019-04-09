@@ -54,6 +54,8 @@
 		A3EE71C5225D233800F5A12B /* ConsoleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C4225D233800F5A12B /* ConsoleLog.swift */; };
 		A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C7225D24B800F5A12B /* MainViewTableDelegate.swift */; };
 		A3EE71CA225D24C300F5A12B /* MainViewTableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */; };
+		A3EE71CD225D354F00F5A12B /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */; };
+		A3EE71CF225D378900F5A12B /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71CE225D378900F5A12B /* RequestOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,8 @@
 		A3EE71C4225D233800F5A12B /* ConsoleLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLog.swift; sourceTree = "<group>"; };
 		A3EE71C7225D24B800F5A12B /* MainViewTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableDelegate.swift; sourceTree = "<group>"; };
 		A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableDatasource.swift; sourceTree = "<group>"; };
+		A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
+		A3EE71CE225D378900F5A12B /* RequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +346,7 @@
 		A3C8AD9A225BCAE7001717DC /* network */ = {
 			isa = PBXGroup;
 			children = (
+				A3EE71CB225D353A00F5A12B /* operations */,
 				A3EE71B8225D1CCC00F5A12B /* decoder */,
 				A3C8ADA3225BD11A001717DC /* endpoints */,
 				A3C8AD9B225BCB4C001717DC /* ResponseDataType.swift */,
@@ -417,6 +422,15 @@
 				A3EE71C4225D233800F5A12B /* ConsoleLog.swift */,
 			);
 			path = logger;
+			sourceTree = "<group>";
+		};
+		A3EE71CB225D353A00F5A12B /* operations */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */,
+				A3EE71CE225D378900F5A12B /* RequestOperation.swift */,
+			);
+			path = operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,11 +541,13 @@
 				A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */,
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,
+				A3EE71CD225D354F00F5A12B /* AsynchronousOperation.swift in Sources */,
 				A3C8ADA7225BD44F001717DC /* APIConfiguration.swift in Sources */,
 				A3C8AD9C225BCB4C001717DC /* ResponseDataType.swift in Sources */,
 				A3C8ADAB225BD627001717DC /* RequestExecutorFactory.swift in Sources */,
 				A3C8ADA0225BCB8D001717DC /* RequestParameters.swift in Sources */,
 				A3EE71CA225D24C300F5A12B /* MainViewTableDatasource.swift in Sources */,
+				A3EE71CF225D378900F5A12B /* RequestOperation.swift in Sources */,
 				A3C8ADAF225BD7E4001717DC /* NetworkError.swift in Sources */,
 				A3C8ADA2225BCBAB001717DC /* RequestData.swift in Sources */,
 				A3C8AD7E225BBC6D001717DC /* MainView.swift in Sources */,

@@ -14,8 +14,6 @@ protocol RequestExecutor {
     init(configuration: APIConfiguration)
     
     /// Executes the request using RequestData and provides the completion result
-    func execute(request: RequestData, completion: @escaping (RequestResponse?) -> ()) throws
-    
-    // TODO 4/8/19 - add cancel method
+    func execute(request: RequestData, completion: @escaping (RequestResponse?) -> ()) throws -> URLSessionTask?
     
 }

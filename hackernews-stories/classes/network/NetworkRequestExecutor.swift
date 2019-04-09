@@ -10,22 +10,25 @@ import Foundation
 
 class NetworkRequestExecutor: RequestExecutor {
     
-    let session: URLSession
-    let configuration: APIConfiguration
+    private let session: URLSession
+    private let configuration: APIConfiguration
+    
+    private weak var task: URLSessionTask?
     
     required init(configuration: APIConfiguration) {
         self.session = URLSession(configuration: .default)
         self.configuration = configuration
     }
     
-    func execute(request: RequestData, completion: @escaping (RequestResponse?) -> ()) throws {
+    func execute(request: RequestData, completion: @escaping (RequestResponse?) -> ()) throws -> URLSessionTask? {
         let taskRequest = try self.prepare(request: request)
-        let task = session.dataTask(with: taskRequest) { (data, response, error) in
+        task = session.dataTask(with: taskRequest) { (data, response, error) in
             let httpResponse = response as? HTTPURLResponse
             let response = RequestResponse((httpResponse, data, error), for: request)
             completion(response)
         }
-        task.resume()
+        task?.resume()
+        return task
     }
     
     func prepare(request: RequestData) throws -> URLRequest {
@@ -70,4 +73,5 @@ class NetworkRequestExecutor: RequestExecutor {
         apiRequest.httpMethod = request.method.rawValue
         return apiRequest
     }
+    
 }

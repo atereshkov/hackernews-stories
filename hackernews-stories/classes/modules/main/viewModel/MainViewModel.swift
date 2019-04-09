@@ -37,9 +37,27 @@ extension MainViewModel: MainViewModelInputsType {
 //            ConsoleLog.i(story)
 //        }
         
-        storyService.getBestStories() { stories, error in
-            ConsoleLog.i(stories)
+//        storyService.getBestStories() { stories, error in
+//            ConsoleLog.i(stories)
+//        }
+        
+        let configuration = APIConfiguration(.dev, baseURL: "https://hacker-news.firebaseio.com/v0/")
+        let executorFactory = RequestExecutorFactory(configuration: configuration)
+        let executor = executorFactory.makeNetworkExecutor()
+        
+        let ids: [Int] = [19592771, 19607169, 19597239]
+        
+        let completion = BlockOperation {
+            Swift.print("Execution of the queue is ended")
         }
+        
+        for id in ids {
+            let request = StoryRequest.getStory(id: id)
+            let operation = RequestOperation(executor: executor, request: request)
+            completion.addDependency(operation)
+        }
+        
+        OperationQueue.main.addOperation(completion)
     }
     
 }
