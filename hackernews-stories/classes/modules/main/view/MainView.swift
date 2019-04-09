@@ -10,6 +10,8 @@ import UIKit
 
 final class MainView: BaseView<MainViewModel> {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,8 @@ private extension MainView {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.backBarButtonTitle = ""
         navigationItem.title = "Stories"
+        
+        tableView.registerNibCell(MainViewCell.self)
     }
     
 }

@@ -48,6 +48,9 @@
 		A3EE71B7225D1BF300F5A12B /* MainCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainCellView.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
+		A3EE71BE225D1FF500F5A12B /* MainCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3EE71BD225D1FF500F5A12B /* MainCellView.xib */; };
+		A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */; };
+		A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		A3EE71B6225D1BF300F5A12B /* MainCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellView.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
+		A3EE71BD225D1FF500F5A12B /* MainCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCellView.xib; sourceTree = "<group>"; };
+		A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Cell.swift"; sourceTree = "<group>"; };
+		A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +300,8 @@
 			isa = PBXGroup;
 			children = (
 				A3C8AD91225BBE5D001717DC /* UINavigationItem.swift */,
+				A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */,
+				A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -372,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				A3EE71B6225D1BF300F5A12B /* MainCellView.swift */,
+				A3EE71BD225D1FF500F5A12B /* MainCellView.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -469,6 +478,7 @@
 				A3C8AD4E225BB76E001717DC /* LaunchScreen.storyboard in Resources */,
 				A3C8AD95225BC2A7001717DC /* Colors.xcassets in Resources */,
 				A3C8AD4B225BB76E001717DC /* Assets.xcassets in Resources */,
+				A3EE71BE225D1FF500F5A12B /* MainCellView.xib in Resources */,
 				A3C8AD49225BB76C001717DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +518,7 @@
 				A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */,
 				A3C8ADAD225BD66D001717DC /* NetworkRequestExecutor.swift in Sources */,
 				A3C8AD9E225BCB6C001717DC /* RequestHTTPMethod.swift in Sources */,
+				A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */,
 				A3C8AD6D225BB9F3001717DC /* AppRouterProtocol.swift in Sources */,
 				A3C8AD8C225BBDAF001717DC /* MainViewModelInputsType.swift in Sources */,
 				A3C8ADB7225BE549001717DC /* Session.swift in Sources */,
@@ -516,6 +527,7 @@
 				A3C8AD77225BBA71001717DC /* InitialMainRouter.swift in Sources */,
 				A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */,
 				A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */,
+				A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */,
 				A3EE71B7225D1BF300F5A12B /* MainCellView.swift in Sources */,
 				A3C8AD8A225BBD97001717DC /* MainViewModelType.swift in Sources */,
 				A3C8AD84225BBCDD001717DC /* MainViewModel.swift in Sources */,
