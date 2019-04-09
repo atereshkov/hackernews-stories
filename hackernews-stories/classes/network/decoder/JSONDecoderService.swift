@@ -15,7 +15,7 @@ class JSONDecoderService: JSONDecoderProtocol {
             let decodedObject = try JSONDecoder().decode(type.self, from: data)
             return decodedObject
         } catch(let error) {
-            Swift.print("JSONDecoder error: \(error)")
+            ConsoleLog.e("JSONDecoder error: \(error)")
             return nil
         }
     }

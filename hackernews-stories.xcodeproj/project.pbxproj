@@ -51,6 +51,7 @@
 		A3EE71BE225D1FF500F5A12B /* MainCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3EE71BD225D1FF500F5A12B /* MainCellView.xib */; };
 		A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */; };
 		A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */; };
+		A3EE71C5225D233800F5A12B /* ConsoleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C4225D233800F5A12B /* ConsoleLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		A3EE71BD225D1FF500F5A12B /* MainCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCellView.xib; sourceTree = "<group>"; };
 		A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Cell.swift"; sourceTree = "<group>"; };
 		A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Identifier.swift"; sourceTree = "<group>"; };
+		A3EE71C4225D233800F5A12B /* ConsoleLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C8AD63225BB8E9001717DC /* classes */,
+				A3EE71C3225D22FF00F5A12B /* utils */,
 				A3C8AD90225BBE38001717DC /* extensions */,
 				A3C8AD64225BB8EF001717DC /* resources */,
 				A3C8AD45225BB76C001717DC /* ViewController.swift */,
@@ -394,6 +397,22 @@
 			path = decoder;
 			sourceTree = "<group>";
 		};
+		A3EE71C3225D22FF00F5A12B /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE71C6225D233B00F5A12B /* logger */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		A3EE71C6225D233B00F5A12B /* logger */ = {
+			isa = PBXGroup;
+			children = (
+				A3EE71C4225D233800F5A12B /* ConsoleLog.swift */,
+			);
+			path = logger;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -519,6 +538,7 @@
 				A3C8ADAD225BD66D001717DC /* NetworkRequestExecutor.swift in Sources */,
 				A3C8AD9E225BCB6C001717DC /* RequestHTTPMethod.swift in Sources */,
 				A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */,
+				A3EE71C5225D233800F5A12B /* ConsoleLog.swift in Sources */,
 				A3C8AD6D225BB9F3001717DC /* AppRouterProtocol.swift in Sources */,
 				A3C8AD8C225BBDAF001717DC /* MainViewModelInputsType.swift in Sources */,
 				A3C8ADB7225BE549001717DC /* Session.swift in Sources */,

@@ -18,7 +18,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
         
         storyService.getItem(id: 19592771) { story, error in
             guard let story = story else { return }
-            Swift.print(story)
+            ConsoleLog.i(story)
         }
     }
     

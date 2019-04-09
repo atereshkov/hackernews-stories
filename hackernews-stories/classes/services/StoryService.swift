@@ -34,6 +34,7 @@ final class StoryService: StoryServiceProtocol {
                 switch response {
                 case .json(_):
                     completion(nil, nil)
+                    ConsoleLog.d("JSON parsing is not handled")
                     break
                 case .data(let data):
                     let entity = self?.jsonDecoder.decodeJSON(type: Story.self, from: data)
@@ -43,7 +44,7 @@ final class StoryService: StoryServiceProtocol {
                 }
             }
         } catch(let error) {
-            Swift.print(error)
+            ConsoleLog.e(error)
             completion(nil, error)
         }
     }
