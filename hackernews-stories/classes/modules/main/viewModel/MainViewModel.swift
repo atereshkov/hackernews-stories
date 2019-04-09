@@ -15,11 +15,6 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     override init(session: SessionType) {
         self.storyService = session.resolve()
         super.init(session: session)
-        
-        storyService.getItem(id: 19592771) { story, error in
-            guard let story = story else { return }
-            ConsoleLog.i(story)
-        }
     }
     
 }
@@ -29,5 +24,24 @@ private extension MainViewModel {
     func setup() {
         
     }
+    
+}
+
+// MARK: MainViewModelInputsType
+
+extension MainViewModel: MainViewModelInputsType {
+    
+    func start() {
+        storyService.getItem(id: 19592771) { story, error in
+            guard let story = story else { return }
+            ConsoleLog.i(story)
+        }
+    }
+    
+}
+
+// MARK: MainViewModelOutputsType
+
+extension MainViewModel: MainViewModelIOutputsType {
     
 }

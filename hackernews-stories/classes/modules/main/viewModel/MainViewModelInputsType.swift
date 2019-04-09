@@ -9,6 +9,6 @@
 import Foundation
 
 protocol MainViewModelInputsType {
-    
+    func start()
 }
 

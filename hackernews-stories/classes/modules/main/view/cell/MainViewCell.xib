@@ -14,15 +14,12 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="42" id="knJ-X0-1Gd" customClass="MainViewCell" customModule="hackernews_stories" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="434" height="42"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="knJ-X0-1Gd" id="ZS8-vx-AqD">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="knJ-X0-1Gd" id="ZS8-vx-AqD">
                 <rect key="frame" x="0.0" y="0.0" width="434" height="41.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDw-Cw-L3c">
-                        <rect key="frame" x="16" y="10" width="408" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="My7-c8-m3w"/>
-                        </constraints>
+                        <rect key="frame" x="16" y="10" width="408" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

@@ -24,6 +24,8 @@ final class MainView: BaseView<MainViewModel> {
     
     override func bindViewModel() {
         super.bindViewModel()
+        
+        viewModel?.start()
     }
     
 }
