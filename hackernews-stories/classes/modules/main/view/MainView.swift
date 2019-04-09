@@ -25,7 +25,9 @@ final class MainView: BaseView<MainViewModel> {
 private extension MainView {
     
     func setupView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.backBarButtonTitle = ""
+        navigationItem.title = "Stories"
     }
     
 }
