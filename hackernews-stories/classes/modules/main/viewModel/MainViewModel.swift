@@ -32,9 +32,13 @@ private extension MainViewModel {
 extension MainViewModel: MainViewModelInputsType {
     
     func start() {
-        storyService.getItem(id: 19592771) { story, error in
-            guard let story = story else { return }
-            ConsoleLog.i(story)
+//        storyService.getItem(id: 19592771) { story, error in
+//            guard let story = story else { return }
+//            ConsoleLog.i(story)
+//        }
+        
+        storyService.getBestStories() { stories, error in
+            ConsoleLog.i(stories)
         }
     }
     

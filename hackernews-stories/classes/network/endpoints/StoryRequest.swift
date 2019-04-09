@@ -10,6 +10,7 @@ import Foundation
 
 enum StoryRequest {
     case getStory(id: Int)
+    case getBeststories
 }
 
 extension StoryRequest: RequestData {
@@ -18,12 +19,16 @@ extension StoryRequest: RequestData {
         switch self {
         case .getStory(let id):
             return "item/\(id).json"
+        case .getBeststories:
+            return "beststories.json"
         }
     }
     
     var parameters: RequestParameters {
         switch self {
         case .getStory(_):
+            return .url([:])
+        case .getBeststories:
             return .url([:])
         }
     }
@@ -36,12 +41,16 @@ extension StoryRequest: RequestData {
         switch self {
         case .getStory(_):
             return .get
+        case .getBeststories:
+            return .get
         }
     }
     
     var dataType: ResponseDataType {
         switch self {
         case .getStory(_):
+            return .data
+        case .getBeststories:
             return .data
         }
     }
