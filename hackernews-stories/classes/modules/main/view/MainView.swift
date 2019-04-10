@@ -26,14 +26,14 @@ final class MainView: BaseView<MainViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
         
-        viewModel?.reloadItems = { [weak self] in
+        viewModel?.callbacks.reloadItems = { [weak self] in
             self?.tableView.reloadData()
         }
-        viewModel?.showLoading = { [weak self] show in
+        viewModel?.callbacks.showLoading = { [weak self] show in
             self?.showLoading(show)
         }
         
-        viewModel?.start()
+        viewModel?.inputs.start()
     }
     
 }

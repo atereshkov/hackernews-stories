@@ -20,8 +20,8 @@ final class MainViewCell: UITableViewCell {
         super.prepareForReuse()
     }
     
-    func set(title: String) {
-        titleLabel.text = title
+    func update(with item: StoryType) {
+        titleLabel.text = item.title
     }
     
 }

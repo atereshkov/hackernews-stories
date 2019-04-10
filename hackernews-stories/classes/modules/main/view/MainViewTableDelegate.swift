@@ -21,11 +21,12 @@ class MainViewTableViewDelegate: NSObject {
 extension MainViewTableViewDelegate: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 80.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        viewModel?.inputs.itemSelected(at: indexPath.row)
     }
     
 }

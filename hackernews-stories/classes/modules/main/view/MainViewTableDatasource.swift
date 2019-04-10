@@ -23,12 +23,12 @@ extension MainViewTableViewDatasource: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: MainViewCell = tableView.dequeueReusableCell(for: indexPath) else { return UITableViewCell() }
         guard let item = viewModel?.item(for: indexPath.row) else { return UITableViewCell() }
-        cell.set(title: item.title ?? "")
+        cell.update(with: item)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.itemsCount ?? 0
+        return viewModel?.ouputs.itemsCount ?? 0
     }
     
 }

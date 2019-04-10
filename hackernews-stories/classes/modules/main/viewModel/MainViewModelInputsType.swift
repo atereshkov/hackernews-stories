@@ -10,5 +10,7 @@ import Foundation
 
 protocol MainViewModelInputsType {
     func start()
+    
+    func itemSelected(at index: Int)
 }
 

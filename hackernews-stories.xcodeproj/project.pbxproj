@@ -56,6 +56,7 @@
 		A3EE71CA225D24C300F5A12B /* MainViewTableDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */; };
 		A3EE71CD225D354F00F5A12B /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */; };
 		A3EE71CF225D378900F5A12B /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71CE225D378900F5A12B /* RequestOperation.swift */; };
+		A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE72F4225E767500F5A12B /* MainViewModelCallbacksType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTableDatasource.swift; sourceTree = "<group>"; };
 		A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 		A3EE71CE225D378900F5A12B /* RequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
+		A3EE72F4225E767500F5A12B /* MainViewModelCallbacksType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelCallbacksType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				A3C8AD89225BBD97001717DC /* MainViewModelType.swift */,
 				A3C8AD8B225BBDAF001717DC /* MainViewModelInputsType.swift */,
 				A3C8AD8D225BBDBF001717DC /* MainViewModelOutputsType.swift */,
+				A3EE72F4225E767500F5A12B /* MainViewModelCallbacksType.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */,
 				A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */,
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
+				A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,
 				A3EE71CD225D354F00F5A12B /* AsynchronousOperation.swift in Sources */,
 				A3C8ADA7225BD44F001717DC /* APIConfiguration.swift in Sources */,

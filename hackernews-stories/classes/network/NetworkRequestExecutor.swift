@@ -33,11 +33,11 @@ class NetworkRequestExecutor: RequestExecutor {
     
     func prepare(request: RequestData) throws -> URLRequest {
         let fullUrl = "\(configuration.baseURL)/\(request.endpoint)"
+        guard let url = URL(string: fullUrl) else {
+            throw NetworkError.incorrectInput
+        }
         
-        var apiRequest = URLRequest(
-            url: URL(string: fullUrl)!,
-            cachePolicy: configuration.cachePolicy
-        )
+        var apiRequest = URLRequest(url: url, cachePolicy: configuration.cachePolicy)
         
         switch request.parameters {
         case .body(let params):

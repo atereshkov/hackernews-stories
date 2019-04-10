@@ -10,6 +10,13 @@ import Foundation
 
 final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     
+    var inputs: MainViewModelInputsType { return self }
+    var ouputs: MainViewModelOutputsType { return self }
+    var callbacks: MainViewModelCallbacksType {
+        get { return self }
+        set { return }
+    }
+    
     private var items: [StoryType] = []
     
     private let storyService: StoryServiceProtocol
@@ -76,11 +83,15 @@ extension MainViewModel: MainViewModelInputsType {
         OperationQueue.main.addOperation(completion)
     }
     
+    func itemSelected(at index: Int) {
+        //guard let item = item(for: index) else { return }
+    }
+    
 }
 
 // MARK: MainViewModelOutputsType
 
-extension MainViewModel: MainViewModelIOutputsType {
+extension MainViewModel: MainViewModelOutputsType {
     
     func item(for index: Int) -> StoryType? {
         guard index >= 0 && index < items.count else { return nil }
