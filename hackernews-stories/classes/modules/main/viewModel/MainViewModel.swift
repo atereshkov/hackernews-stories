@@ -87,6 +87,10 @@ extension MainViewModel: MainViewModelInputsType {
         //guard let item = item(for: index) else { return }
     }
     
+    func pullToRefreshAction() {
+        start()
+    }
+    
 }
 
 // MARK: MainViewModelOutputsType

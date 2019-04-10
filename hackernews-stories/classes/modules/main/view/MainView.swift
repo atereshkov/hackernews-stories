@@ -12,6 +12,7 @@ final class MainView: BaseView<MainViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    private let pullToRefreshControl = UIRefreshControl()
     
     private var tableViewDelegate: MainViewTableViewDelegate?
     private var tableViewDatasource: MainViewTableViewDatasource?
@@ -41,7 +42,7 @@ final class MainView: BaseView<MainViewModel> {
 private extension MainView {
     
     func setupView() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        //navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.backBarButtonTitle = ""
         navigationItem.title = "Stories"
     }
@@ -49,6 +50,9 @@ private extension MainView {
     func setupTableView() {
         tableView.tableFooterView = UIView()
         tableView.registerNibCell(MainViewCell.self)
+        
+        tableView.refreshControl = pullToRefreshControl
+        pullToRefreshControl.addTarget(self, action: #selector(handlePullToRefresh(_:)), for: .valueChanged)
         
         guard let viewModel = viewModel else { return }
         tableViewDelegate = MainViewTableViewDelegate(viewModel: viewModel)
@@ -63,7 +67,12 @@ private extension MainView {
             activityIndicator.startAnimating()
         } else {
             activityIndicator.stopAnimating()
+            pullToRefreshControl.endRefreshing()
         }
+    }
+    
+    @objc private func handlePullToRefresh(_ sender: Any) {
+        viewModel?.inputs.pullToRefreshAction()
     }
     
 }
