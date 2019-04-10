@@ -57,6 +57,7 @@
 		A3EE71CD225D354F00F5A12B /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */; };
 		A3EE71CF225D378900F5A12B /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71CE225D378900F5A12B /* RequestOperation.swift */; };
 		A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE72F4225E767500F5A12B /* MainViewModelCallbacksType.swift */; };
+		A3EE72F7225E996900F5A12B /* LinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE72F6225E996900F5A12B /* LinkRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 		A3EE71CE225D378900F5A12B /* RequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 		A3EE72F4225E767500F5A12B /* MainViewModelCallbacksType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelCallbacksType.swift; sourceTree = "<group>"; };
+		A3EE72F6225E996900F5A12B /* LinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 			children = (
 				A3C8AD6C225BB9F3001717DC /* AppRouterProtocol.swift */,
 				A3C8AD6E225BBA13001717DC /* AppRouter.swift */,
+				A3EE72F6225E996900F5A12B /* LinkRouter.swift */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				A3C8AD6F225BBA13001717DC /* AppRouter.swift in Sources */,
 				A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */,
 				A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */,
+				A3EE72F7225E996900F5A12B /* LinkRouter.swift in Sources */,
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
 				A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,

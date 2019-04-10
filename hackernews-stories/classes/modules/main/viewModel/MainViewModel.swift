@@ -85,7 +85,8 @@ extension MainViewModel: MainViewModelInputsType {
     }
     
     func itemSelected(at index: Int) {
-        //guard let item = item(for: index) else { return }
+        guard let item = item(for: index), let link = item.url else { return }
+        router?.open(link: link)
     }
     
     func willDisplayCell(at index: Int) {
