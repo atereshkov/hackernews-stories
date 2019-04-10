@@ -33,23 +33,32 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
         super.init(session: session)
     }
     
-    var reloadItems: (() -> Void)?
-    var showLoading: ((Bool) -> Void)?
-    
     var itemsCount: Int {
         return items.count
     }
+    
+    // MARK: MainViewModelCallbacksType
+    
+    var reloadItems: (() -> Void)?
+    var showLoading: ((Bool) -> Void)?
     
 }
 
 private extension MainViewModel {
     
-    func setup() {
-        
-    }
-    
-    func loadBeststories() {
-        
+    func loadBestStories() {
+        showLoading?(true)
+        storyService.getBestStoriesIds() { [weak self] stories, error in
+            self?.showLoading?(false)
+            guard let stories = stories else {
+                self?.showLoading?(false)
+                return
+            }
+            self?.storiesIds = stories
+            self?.totalItemsCount = stories.count
+            let ids = Array(stories.prefix(Constants.paginationLimit))
+            self?.loadItems(ids: ids)
+        }
     }
     
     func loadItems(ids: [Int]) {
@@ -70,18 +79,7 @@ private extension MainViewModel {
 extension MainViewModel: MainViewModelInputsType {
     
     func start() {
-        showLoading?(true)
-        storyService.getBestStoriesIds() { [weak self] stories, error in
-            self?.showLoading?(false)
-            guard let stories = stories else {
-                self?.showLoading?(false)
-                return
-            }
-            self?.storiesIds = stories
-            self?.totalItemsCount = stories.count
-            let ids = Array(stories.prefix(Constants.paginationLimit))
-            self?.loadItems(ids: ids)
-        }
+        loadBestStories()
     }
     
     func itemSelected(at index: Int) {
