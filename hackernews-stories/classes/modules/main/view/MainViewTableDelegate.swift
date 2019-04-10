@@ -29,4 +29,8 @@ extension MainViewTableViewDelegate: UITableViewDelegate {
         viewModel?.inputs.itemSelected(at: indexPath.row)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel?.inputs.willDisplayCell(at: indexPath.item)
+    }
+    
 }

@@ -18,6 +18,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     }
     
     private var items: [StoryType] = []
+    private var totalItemsCount: Int = 0
     
     private let storyService: StoryServiceProtocol
     
@@ -66,6 +67,7 @@ extension MainViewModel: MainViewModelInputsType {
         let completion = BlockOperation { [weak self] in
             Swift.print("Execution of the queue is ended")
             Swift.print("Stories: \(self?.items)")
+            self?.totalItemsCount = (self?.items.count ?? 0) + 1
             self?.showLoading?(false)
             self?.reloadItems?()
         }
@@ -85,6 +87,13 @@ extension MainViewModel: MainViewModelInputsType {
     
     func itemSelected(at index: Int) {
         //guard let item = item(for: index) else { return }
+    }
+    
+    func willDisplayCell(at index: Int) {
+        guard items.count < self.totalItemsCount else { return }
+        if index >= items.count - 1 {
+            //loadMoreItems(offset: items.value.count)
+        }
     }
     
     func pullToRefreshAction() {
