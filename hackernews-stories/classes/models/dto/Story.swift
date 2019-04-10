@@ -33,6 +33,9 @@ protocol StoryType {
     
     /// Creation date of the item
     var creationDate: Date? { get }
+    
+    /// URL's host
+    var host: String? { get }
 }
 
 struct Story: StoryType, Equatable, Decodable {
@@ -58,6 +61,11 @@ struct Story: StoryType, Equatable, Decodable {
     var creationDate: Date? {
         guard let time = time else { return nil }
         return Date(timeIntervalSince1970: time)
+    }
+    
+    var host: String? {
+        guard let link = url, let urlLink = URL(string: link) else { return nil }
+        return urlLink.host
     }
     
 }

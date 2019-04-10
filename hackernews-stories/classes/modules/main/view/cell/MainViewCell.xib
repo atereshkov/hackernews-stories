@@ -44,13 +44,14 @@
                     <constraint firstItem="WGj-v3-Eno" firstAttribute="top" secondItem="ZS8-vx-AqD" secondAttribute="top" constant="5" id="BA7-tT-1Vg"/>
                     <constraint firstAttribute="trailing" secondItem="jXi-v0-s6i" secondAttribute="trailing" constant="15" id="Fc1-oA-BSQ"/>
                     <constraint firstItem="RDw-Cw-L3c" firstAttribute="leading" secondItem="WGj-v3-Eno" secondAttribute="trailing" constant="15" id="UQ1-mu-e3K"/>
-                    <constraint firstItem="jXi-v0-s6i" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RDw-Cw-L3c" secondAttribute="bottom" id="ab5-EM-OYa"/>
+                    <constraint firstItem="jXi-v0-s6i" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RDw-Cw-L3c" secondAttribute="bottom" constant="5" id="ab5-EM-OYa"/>
                     <constraint firstAttribute="bottom" secondItem="WGj-v3-Eno" secondAttribute="bottom" constant="5" id="obJ-av-LlW"/>
                     <constraint firstItem="jXi-v0-s6i" firstAttribute="leading" secondItem="WGj-v3-Eno" secondAttribute="trailing" constant="15" id="wlU-Ck-a7z"/>
                     <constraint firstItem="RDw-Cw-L3c" firstAttribute="top" secondItem="ZS8-vx-AqD" secondAttribute="top" constant="5" id="xU9-yH-K9m"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="hostLabel" destination="jXi-v0-s6i" id="5oe-Tt-aYu"/>
                 <outlet property="titleLabel" destination="RDw-Cw-L3c" id="JKJ-Qc-47Y"/>
             </connections>
             <point key="canvasLocation" x="535.50724637681162" y="7.3660714285714279"/>

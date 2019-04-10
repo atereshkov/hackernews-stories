@@ -11,6 +11,7 @@ import UIKit
 final class MainViewCell: UITableViewCell {
     
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var hostLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +23,7 @@ final class MainViewCell: UITableViewCell {
     
     func update(with item: StoryType) {
         titleLabel.text = item.title
+        hostLabel.text = item.host
     }
     
 }
