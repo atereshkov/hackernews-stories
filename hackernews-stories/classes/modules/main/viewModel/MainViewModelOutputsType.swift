@@ -9,5 +9,9 @@
 import Foundation
 
 protocol MainViewModelIOutputsType {
+    var reloadItems: (() -> Void)? { get set }
+    var showLoading: ((_ show: Bool) -> Void)? { get set }
     
+    var itemsCount: Int { get }
+    func item(for index: Int) -> StoryType?
 }

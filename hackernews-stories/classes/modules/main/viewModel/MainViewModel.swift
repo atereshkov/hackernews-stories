@@ -10,11 +10,20 @@ import Foundation
 
 final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     
+    private var items: [StoryType] = []
+    
     private let storyService: StoryServiceProtocol
     
     override init(session: SessionType) {
         self.storyService = session.resolve()
         super.init(session: session)
+    }
+    
+    var reloadItems: (() -> Void)?
+    var showLoading: ((Bool) -> Void)?
+    
+    var itemsCount: Int {
+        return items.count
     }
     
 }
@@ -47,13 +56,20 @@ extension MainViewModel: MainViewModelInputsType {
         
         let ids: [Int] = [19592771, 19607169, 19597239]
         
-        let completion = BlockOperation {
+        let completion = BlockOperation { [weak self] in
             Swift.print("Execution of the queue is ended")
+            Swift.print("Stories: \(self?.items)")
+            self?.showLoading?(false)
+            self?.reloadItems?()
         }
         
+        showLoading?(true)
         for id in ids {
             let request = StoryRequest.getStory(id: id)
-            let operation = RequestOperation(executor: executor, request: request)
+            let operation = RequestOperation(executor: executor, request: request) { [weak self] story in
+                guard let story = story else { return }
+                self?.items.append(story)
+            }
             completion.addDependency(operation)
         }
         
@@ -65,5 +81,10 @@ extension MainViewModel: MainViewModelInputsType {
 // MARK: MainViewModelOutputsType
 
 extension MainViewModel: MainViewModelIOutputsType {
+    
+    func item(for index: Int) -> StoryType? {
+        guard index >= 0 && index < items.count else { return nil }
+        return items[index]
+    }
     
 }

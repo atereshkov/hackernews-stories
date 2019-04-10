@@ -13,7 +13,7 @@ class RequestOperation: AsynchronousOperation {
     private weak var task: URLSessionTask?
     let session: URLSession = URLSession(configuration: .default)
     
-    init(executor: RequestExecutor, request: RequestData) {
+    init(executor: RequestExecutor, request: RequestData, completion: @escaping (Story?) -> Void) {
         super.init()
         
         let jsonDecoder = JSONDecoderService()
@@ -29,6 +29,7 @@ class RequestOperation: AsynchronousOperation {
             case .data(let data):
                 let entity = jsonDecoder.decodeJSON(type: Story.self, from: data)
                 Swift.print(entity)
+                completion(entity)
             case .error(_, let error):
                 ConsoleLog.e("Error occured: \(String(describing: error))")
             }

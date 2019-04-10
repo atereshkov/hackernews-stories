@@ -22,12 +22,13 @@ extension MainViewTableViewDatasource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: MainViewCell = tableView.dequeueReusableCell(for: indexPath) else { return UITableViewCell() }
-        cell.set(title: "Text")
+        guard let item = viewModel?.item(for: indexPath.row) else { return UITableViewCell() }
+        cell.set(title: item.title ?? "")
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel?.itemsCount ?? 0
     }
     
 }
