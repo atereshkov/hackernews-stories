@@ -28,7 +28,6 @@ class RequestOperation: AsynchronousOperation {
                 break
             case .data(let data):
                 let entity = jsonDecoder.decodeJSON(type: Story.self, from: data)
-                Swift.print(entity)
                 completion(entity)
             case .error(_, let error):
                 ConsoleLog.e("Error occured: \(String(describing: error))")

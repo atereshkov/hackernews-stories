@@ -10,6 +10,10 @@ import Foundation
 
 final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     
+    private struct Constants {
+        static let paginationLimit: Int = 20
+    }
+    
     var inputs: MainViewModelInputsType { return self }
     var ouputs: MainViewModelOutputsType { return self }
     var callbacks: MainViewModelCallbacksType {
@@ -18,7 +22,9 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     }
     
     private var items: [StoryType] = []
+    private var storiesIds: [Int] = []
     private var totalItemsCount: Int = 0
+    private var paginationOffset: Int = 0
     
     private let storyService: StoryServiceProtocol
     
@@ -42,6 +48,21 @@ private extension MainViewModel {
         
     }
     
+    func loadBeststories() {
+        
+    }
+    
+    func loadItems(ids: [Int]) {
+        showLoading?(true)
+        storyService.getItems(ids: ids) { [weak self] stories, error in
+            defer {
+                self?.showLoading?(false)
+            }
+            self?.items.append(contentsOf: stories)
+            self?.reloadItems?()
+        }
+    }
+    
 }
 
 // MARK: MainViewModelInputsType
@@ -49,40 +70,18 @@ private extension MainViewModel {
 extension MainViewModel: MainViewModelInputsType {
     
     func start() {
-//        storyService.getItem(id: 19592771) { story, error in
-//            guard let story = story else { return }
-//            ConsoleLog.i(story)
-//        }
-        
-//        storyService.getBestStories() { stories, error in
-//            ConsoleLog.i(stories)
-//        }
-        
-        let configuration = APIConfiguration(.dev, baseURL: "https://hacker-news.firebaseio.com/v0/")
-        let executorFactory = RequestExecutorFactory(configuration: configuration)
-        let executor = executorFactory.makeNetworkExecutor()
-        
-        let ids: [Int] = [19592771, 19607169, 19597239]
-        
-        let completion = BlockOperation { [weak self] in
-            Swift.print("Execution of the queue is ended")
-            Swift.print("Stories: \(self?.items)")
-            self?.totalItemsCount = (self?.items.count ?? 0) + 1
-            self?.showLoading?(false)
-            self?.reloadItems?()
-        }
-        
         showLoading?(true)
-        for id in ids {
-            let request = StoryRequest.getStory(id: id)
-            let operation = RequestOperation(executor: executor, request: request) { [weak self] story in
-                guard let story = story else { return }
-                self?.items.append(story)
+        storyService.getBestStoriesIds() { [weak self] stories, error in
+            self?.showLoading?(false)
+            guard let stories = stories else {
+                self?.showLoading?(false)
+                return
             }
-            completion.addDependency(operation)
+            self?.storiesIds = stories
+            self?.totalItemsCount = stories.count
+            let ids = Array(stories.prefix(Constants.paginationLimit))
+            self?.loadItems(ids: ids)
         }
-        
-        OperationQueue.main.addOperation(completion)
     }
     
     func itemSelected(at index: Int) {
@@ -92,11 +91,13 @@ extension MainViewModel: MainViewModelInputsType {
     func willDisplayCell(at index: Int) {
         guard items.count < self.totalItemsCount else { return }
         if index >= items.count - 1 {
-            //loadMoreItems(offset: items.value.count)
+            let ids = Array(storiesIds[items.count...Constants.paginationLimit + items.count - 1])
+            loadItems(ids: ids)
         }
     }
     
     func pullToRefreshAction() {
+        items.removeAll()
         start()
     }
     

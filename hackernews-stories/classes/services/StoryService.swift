@@ -9,8 +9,9 @@
 import Foundation
 
 protocol StoryServiceProtocol {
-    func getItem(id: Int, completion: @escaping (Story?, Error?) -> Void)
-    func getBestStories(completion: @escaping ([Int]?, Error?) -> Void)
+    func getItem(id: Int, completion: @escaping (StoryType?, Error?) -> Void)
+    func getItems(ids: [Int], completion: @escaping ([StoryType], Error?) -> Void)
+    func getBestStoriesIds(completion: @escaping ([Int]?, Error?) -> Void)
 }
 
 final class StoryService: StoryServiceProtocol {
@@ -23,7 +24,7 @@ final class StoryService: StoryServiceProtocol {
         self.jsonDecoder = jsonDecoder
     }
     
-    func getItem(id: Int, completion: @escaping (Story?, Error?) -> Void) {
+    func getItem(id: Int, completion: @escaping (StoryType?, Error?) -> Void) {
         let requestData: RequestData = StoryRequest.getStory(id: id)
         
         do {
@@ -51,7 +52,26 @@ final class StoryService: StoryServiceProtocol {
         }
     }
     
-    func getBestStories(completion: @escaping ([Int]?, Error?) -> Void) {
+    func getItems(ids: [Int], completion: @escaping ([StoryType], Error?) -> Void) {
+        var items: [StoryType] = []
+        
+        let completionBlock = BlockOperation { [weak self] in
+            completion(items, nil)
+        }
+        
+        for id in ids {
+            let request = StoryRequest.getStory(id: id)
+            let operation = RequestOperation(executor: requestExecutor, request: request) { [weak self] story in
+                guard let story = story else { return }
+                items.append(story)
+            }
+            completionBlock.addDependency(operation)
+        }
+        
+        OperationQueue.main.addOperation(completionBlock)
+    }
+    
+    func getBestStoriesIds(completion: @escaping ([Int]?, Error?) -> Void) {
         let requestData: RequestData = StoryRequest.getBeststories
         
         do {

@@ -28,10 +28,14 @@ final class MainView: BaseView<MainViewModel> {
         super.bindViewModel()
         
         viewModel?.callbacks.reloadItems = { [weak self] in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
         }
         viewModel?.callbacks.showLoading = { [weak self] show in
-            self?.showLoading(show)
+            DispatchQueue.main.async { [weak self] in
+                self?.showLoading(show)
+            }
         }
         
         viewModel?.inputs.start()
@@ -62,7 +66,7 @@ private extension MainView {
     }
     
     func showLoading(_ show: Bool) {
-        tableView.isHidden = show
+        //tableView.isHidden = show
         if show {
             activityIndicator.startAnimating()
         } else {
