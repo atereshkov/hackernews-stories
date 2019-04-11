@@ -58,6 +58,11 @@
 		A3EE71CF225D378900F5A12B /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71CE225D378900F5A12B /* RequestOperation.swift */; };
 		A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE72F4225E767500F5A12B /* MainViewModelCallbacksType.swift */; };
 		A3EE72F7225E996900F5A12B /* LinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE72F6225E996900F5A12B /* LinkRouter.swift */; };
+		A3EE733E225FC98800F5A12B /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE733D225FC98800F5A12B /* ScanService.swift */; };
+		A3EE7340225FC9CC00F5A12B /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE733F225FC9CC00F5A12B /* Icon.swift */; };
+		A3EE7342225FC9EE00F5A12B /* IconType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE7341225FC9EE00F5A12B /* IconType.swift */; };
+		A3EE7346225FD78900F5A12B /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE7345225FD78900F5A12B /* UIImageView.swift */; };
+		A3EE7348225FD7D900F5A12B /* ImageCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE7347225FD7D900F5A12B /* ImageCacheService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +131,11 @@
 		A3EE71CE225D378900F5A12B /* RequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 		A3EE72F4225E767500F5A12B /* MainViewModelCallbacksType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelCallbacksType.swift; sourceTree = "<group>"; };
 		A3EE72F6225E996900F5A12B /* LinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRouter.swift; sourceTree = "<group>"; };
+		A3EE733D225FC98800F5A12B /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
+		A3EE733F225FC9CC00F5A12B /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		A3EE7341225FC9EE00F5A12B /* IconType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconType.swift; sourceTree = "<group>"; };
+		A3EE7345225FD78900F5A12B /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		A3EE7347225FD7D900F5A12B /* ImageCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +331,7 @@
 				A3C8AD91225BBE5D001717DC /* UINavigationItem.swift */,
 				A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */,
 				A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */,
+				A3EE7345225FD78900F5A12B /* UIImageView.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -337,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				A3C8AD97225BC59F001717DC /* dto */,
+				A3EE733F225FC9CC00F5A12B /* Icon.swift */,
+				A3EE7341225FC9EE00F5A12B /* IconType.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -381,6 +394,8 @@
 			isa = PBXGroup;
 			children = (
 				A3C8ADB4225BDA1A001717DC /* StoryService.swift */,
+				A3EE733D225FC98800F5A12B /* ScanService.swift */,
+				A3EE7347225FD7D900F5A12B /* ImageCacheService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -546,7 +561,9 @@
 				A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */,
 				A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */,
 				A3EE72F7225E996900F5A12B /* LinkRouter.swift in Sources */,
+				A3EE733E225FC98800F5A12B /* ScanService.swift in Sources */,
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
+				A3EE7346225FD78900F5A12B /* UIImageView.swift in Sources */,
 				A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,
 				A3EE71CD225D354F00F5A12B /* AsynchronousOperation.swift in Sources */,
@@ -561,6 +578,7 @@
 				A3C8AD7E225BBC6D001717DC /* MainView.swift in Sources */,
 				A3C8ADC4225BF5DE001717DC /* ContainerRecord.swift in Sources */,
 				A3C8AD99225BC5DA001717DC /* Story.swift in Sources */,
+				A3EE7342225FC9EE00F5A12B /* IconType.swift in Sources */,
 				A3C8AD7C225BBC31001717DC /* MainRouter.swift in Sources */,
 				A3C8AD46225BB76C001717DC /* ViewController.swift in Sources */,
 				A3C8ADB1225BD803001717DC /* RequestResponse.swift in Sources */,
@@ -570,6 +588,7 @@
 				A3C8ADAD225BD66D001717DC /* NetworkRequestExecutor.swift in Sources */,
 				A3C8AD9E225BCB6C001717DC /* RequestHTTPMethod.swift in Sources */,
 				A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */,
+				A3EE7348225FD7D900F5A12B /* ImageCacheService.swift in Sources */,
 				A3EE71C5225D233800F5A12B /* ConsoleLog.swift in Sources */,
 				A3C8AD6D225BB9F3001717DC /* AppRouterProtocol.swift in Sources */,
 				A3C8AD8C225BBDAF001717DC /* MainViewModelInputsType.swift in Sources */,
@@ -577,6 +596,7 @@
 				A3C8AD80225BBC92001717DC /* BaseView.swift in Sources */,
 				A3C8ADA9225BD580001717DC /* RequestExecutor.swift in Sources */,
 				A3C8AD77225BBA71001717DC /* InitialMainRouter.swift in Sources */,
+				A3EE7340225FC9CC00F5A12B /* Icon.swift in Sources */,
 				A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */,
 				A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */,
 				A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */,

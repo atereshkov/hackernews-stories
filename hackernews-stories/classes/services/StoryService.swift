@@ -30,25 +30,35 @@ final class StoryService: StoryServiceProtocol {
         do {
             _ = try requestExecutor.execute(request: requestData) { [weak self] response in
                 guard let response = response else {
-                    completion(nil, NetworkError.noData)
+                    DispatchQueue.main.async {
+                        completion(nil, NetworkError.noData)
+                    }
                     return
                 }
                 switch response {
                 case .json(_):
-                    completion(nil, nil)
+                    DispatchQueue.main.async {
+                        completion(nil, nil)
+                    }
                     ConsoleLog.d("JSON parsing is not handled")
                     break
                 case .data(let data):
                     let entity = self?.jsonDecoder.decodeJSON(type: Story.self, from: data)
-                    completion(entity, nil)
+                    DispatchQueue.main.async {
+                        completion(entity, nil)
+                    }
                 case .error(_, let error):
                     ConsoleLog.e("Error occured: \(String(describing: error))")
-                    completion(nil, error)
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
                 }
             }
         } catch(let error) {
             ConsoleLog.e(error)
-            completion(nil, error)
+            DispatchQueue.main.async {
+                completion(nil, error)
+            }
         }
     }
     
@@ -56,7 +66,9 @@ final class StoryService: StoryServiceProtocol {
         var items: [StoryType] = []
         
         let completionBlock = BlockOperation { [weak self] in
-            completion(items, nil)
+            DispatchQueue.main.async {
+                completion(items, nil)
+            }
         }
         
         for id in ids {
@@ -77,25 +89,36 @@ final class StoryService: StoryServiceProtocol {
         do {
             _ = try requestExecutor.execute(request: requestData) { [weak self] response in
                 guard let response = response else {
-                    completion([], NetworkError.noData)
+                    DispatchQueue.main.async {
+                        completion([], NetworkError.noData)
+                    }
                     return
                 }
                 switch response {
                 case .json(_):
+                    DispatchQueue.main.async {
+                        
+                    }
                     completion([], nil)
                     ConsoleLog.d("JSON parsing is not handled")
                     break
                 case .data(let data):
                     let array = self?.jsonDecoder.decodeJSON(type: [Int].self, from: data)
-                    completion(array, nil)
+                    DispatchQueue.main.async {
+                        completion(array, nil)
+                    }
                 case .error(_, let error):
                     ConsoleLog.e("Error occured: \(String(describing: error))")
-                    completion([], error)
+                    DispatchQueue.main.async {
+                        completion([], error)
+                    }
                 }
             }
         } catch(let error) {
             ConsoleLog.e(error)
-            completion([], error)
+            DispatchQueue.main.async {
+                completion([], error)
+            }
         }
     }
     

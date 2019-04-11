@@ -10,6 +10,7 @@ import UIKit
 
 final class MainViewCell: UITableViewCell {
     
+    @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var hostLabel: UILabel!
     
@@ -24,6 +25,7 @@ final class MainViewCell: UITableViewCell {
     func update(with item: StoryType) {
         titleLabel.text = item.title
         hostLabel.text = item.host
+        iconImageView.loadImage(with: "https://www.raywenderlich.com/apple-touch-icon.png")
     }
     
 }

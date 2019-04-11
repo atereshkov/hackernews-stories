@@ -52,6 +52,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="hostLabel" destination="jXi-v0-s6i" id="5oe-Tt-aYu"/>
+                <outlet property="iconImageView" destination="WGj-v3-Eno" id="oOu-oB-cZ2"/>
                 <outlet property="titleLabel" destination="RDw-Cw-L3c" id="JKJ-Qc-47Y"/>
             </connections>
             <point key="canvasLocation" x="535.50724637681162" y="7.3660714285714279"/>

@@ -21,6 +21,7 @@ final class Session: SessionType {
         container = {
             let storyService = StoryService(requestExecutor: networkRequestExecutor, jsonDecoder: jsonDecoder)
             container.addService { storyService as StoryServiceProtocol }
+            container.addService { ScanService() as ScanServiceProtocol }
             return container
         }()
     }

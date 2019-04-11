@@ -27,9 +27,11 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     private var isLoadingItemsInProgress: Bool = false
     
     private let storyService: StoryServiceProtocol
+    private let scanService: ScanServiceProtocol
     
     override init(session: SessionType) {
         self.storyService = session.resolve()
+        self.scanService = session.resolve()
         super.init(session: session)
     }
     
@@ -73,6 +75,13 @@ private extension MainViewModel {
             let sortedItems = stories.sorted { $0.score ?? 0 > $1.score ?? 0 }
             self?.items.append(contentsOf: sortedItems)
             self?.reloadItems?()
+        }
+    }
+    
+    func scan(items: [StoryType]) {
+        let url = URL(string: "https://www.raywenderlich.com/")!
+        scanService.scan(url: url) { [weak self] icons, error in
+            Swift.print()
         }
     }
     
