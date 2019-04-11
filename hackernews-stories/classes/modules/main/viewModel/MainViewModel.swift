@@ -24,7 +24,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     private var items: [StoryType] = []
     private var storiesIds: [Int] = []
     private var totalItemsCount: Int = 0
-    private var paginationOffset: Int = 0
+    private var isLoadingItemsInProgress: Bool = false
     
     private let storyService: StoryServiceProtocol
     
@@ -62,12 +62,16 @@ private extension MainViewModel {
     }
     
     func loadItems(ids: [Int]) {
+        guard !isLoadingItemsInProgress else { return }
+        isLoadingItemsInProgress = true
         showLoading?(true)
         storyService.getItems(ids: ids) { [weak self] stories, error in
             defer {
+                self?.isLoadingItemsInProgress = false
                 self?.showLoading?(false)
             }
-            self?.items.append(contentsOf: stories)
+            let sortedItems = stories.sorted { $0.score ?? 0 > $1.score ?? 0 }
+            self?.items.append(contentsOf: sortedItems)
             self?.reloadItems?()
         }
     }
