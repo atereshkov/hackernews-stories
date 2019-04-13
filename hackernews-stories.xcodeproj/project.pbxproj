@@ -51,6 +51,14 @@
 		A3C8ADBE225BE616001717DC /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADBD225BE616001717DC /* Container.swift */; };
 		A3C8ADC4225BF5DE001717DC /* ContainerRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADC3225BF5DE001717DC /* ContainerRecord.swift */; };
 		A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8ADC5225BF613001717DC /* SessionType.swift */; };
+		A3CC8EF3226243230029EA52 /* SessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8EF2226243230029EA52 /* SessionTests.swift */; };
+		A3CC8EF6226243E70029EA52 /* BaseViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8EF5226243E70029EA52 /* BaseViewTests.swift */; };
+		A3CC8EF8226243FD0029EA52 /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8EF7226243FD0029EA52 /* DummyView.swift */; };
+		A3CC8EFA226244300029EA52 /* DummyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8EF9226244300029EA52 /* DummyViewModel.swift */; };
+		A3CC8EFC226244490029EA52 /* DummyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8EFB226244490029EA52 /* DummyRouter.swift */; };
+		A3CC8EFF226244AC0029EA52 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8EFE226244AC0029EA52 /* AppRouter.swift */; };
+		A3CC8F01226245AA0029EA52 /* BaseRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F00226245AA0029EA52 /* BaseRouterTests.swift */; };
+		A3CC8F03226245C70029EA52 /* StubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F02226245C70029EA52 /* StubRouter.swift */; };
 		A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
@@ -128,6 +136,14 @@
 		A3C8ADBD225BE616001717DC /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		A3C8ADC3225BF5DE001717DC /* ContainerRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerRecord.swift; sourceTree = "<group>"; };
 		A3C8ADC5225BF613001717DC /* SessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionType.swift; sourceTree = "<group>"; };
+		A3CC8EF2226243230029EA52 /* SessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
+		A3CC8EF5226243E70029EA52 /* BaseViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewTests.swift; sourceTree = "<group>"; };
+		A3CC8EF7226243FD0029EA52 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
+		A3CC8EF9226244300029EA52 /* DummyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewModel.swift; sourceTree = "<group>"; };
+		A3CC8EFB226244490029EA52 /* DummyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyRouter.swift; sourceTree = "<group>"; };
+		A3CC8EFE226244AC0029EA52 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		A3CC8F00226245AA0029EA52 /* BaseRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterTests.swift; sourceTree = "<group>"; };
+		A3CC8F02226245C70029EA52 /* StubRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRouter.swift; sourceTree = "<group>"; };
 		A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
@@ -198,6 +214,9 @@
 		A3C8AD57225BB76E001717DC /* hackernews-storiesTests */ = {
 			isa = PBXGroup;
 			children = (
+				A3CC8EF4226243D20029EA52 /* base */,
+				A3CC8EFD226244A20029EA52 /* router */,
+				A3CC8EF1226243090029EA52 /* session */,
 				A3C8AD58225BB76E001717DC /* hackernews_storiesTests.swift */,
 				A3C8AD5A225BB76E001717DC /* Info.plist */,
 			);
@@ -421,6 +440,35 @@
 			path = di;
 			sourceTree = "<group>";
 		};
+		A3CC8EF1226243090029EA52 /* session */ = {
+			isa = PBXGroup;
+			children = (
+				A3CC8EF2226243230029EA52 /* SessionTests.swift */,
+			);
+			path = session;
+			sourceTree = "<group>";
+		};
+		A3CC8EF4226243D20029EA52 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				A3CC8EF5226243E70029EA52 /* BaseViewTests.swift */,
+				A3CC8EF7226243FD0029EA52 /* DummyView.swift */,
+				A3CC8EF9226244300029EA52 /* DummyViewModel.swift */,
+				A3CC8EFB226244490029EA52 /* DummyRouter.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		A3CC8EFD226244A20029EA52 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				A3CC8EFE226244AC0029EA52 /* AppRouter.swift */,
+				A3CC8F00226245AA0029EA52 /* BaseRouterTests.swift */,
+				A3CC8F02226245C70029EA52 /* StubRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
 		A3EE71B5225D1BDF00F5A12B /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -630,7 +678,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CC8F03226245C70029EA52 /* StubRouter.swift in Sources */,
+				A3CC8EF3226243230029EA52 /* SessionTests.swift in Sources */,
+				A3CC8EFC226244490029EA52 /* DummyRouter.swift in Sources */,
+				A3CC8EF8226243FD0029EA52 /* DummyView.swift in Sources */,
 				A3C8AD59225BB76E001717DC /* hackernews_storiesTests.swift in Sources */,
+				A3CC8EFF226244AC0029EA52 /* AppRouter.swift in Sources */,
+				A3CC8EFA226244300029EA52 /* DummyViewModel.swift in Sources */,
+				A3CC8EF6226243E70029EA52 /* BaseViewTests.swift in Sources */,
+				A3CC8F01226245AA0029EA52 /* BaseRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
