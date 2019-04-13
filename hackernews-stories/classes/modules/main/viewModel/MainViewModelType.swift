@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol MainViewModelType: ViewModelType, MainViewModelInputsType, MainViewModelIOutputsType {
-    
+protocol MainViewModelType: ViewModelType, MainViewModelInputsType, MainViewModelOutputsType, MainViewModelCallbacksType {
+    var inputs: MainViewModelInputsType { get }
+    var outputs: MainViewModelOutputsType { get }
+    var callbacks: MainViewModelCallbacksType { get set }
 }

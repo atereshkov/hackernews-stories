@@ -10,13 +10,13 @@ import Foundation
 
 enum ContainerRecord {
     case instance(Any)
-    case recipe(() -> Any)
+    case dependedReference(() -> Any)
     
     func unwrap() -> Any {
         switch self {
         case .instance(let instance):
             return instance
-        case .recipe(let recipe):
+        case .dependedReference(let recipe):
             return recipe()
         }
     }

@@ -18,7 +18,7 @@ struct Container {
     
     mutating func addService<T>(recipe: @escaping () -> T) {
         let key = typeName(some: T.self)
-        services[key] = .recipe(recipe)
+        services[key] = .dependedReference(recipe)
     }
     
     mutating func addService<T>(instance: T) {
@@ -32,7 +32,7 @@ struct Container {
         let instance: T? = serviceRecord.unwrap() as? T
         
         switch serviceRecord {
-        case .recipe:
+        case .dependedReference:
             if let instance = instance {
                 addService(instance: instance)
             }

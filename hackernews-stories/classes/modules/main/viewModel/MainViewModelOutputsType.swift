@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol MainViewModelIOutputsType {
-    
+protocol MainViewModelOutputsType {
+    var itemsCount: Int { get }
+    func item(for index: Int) -> StoryType?
+    func icon(for index: Int) -> IconProtocol?
 }

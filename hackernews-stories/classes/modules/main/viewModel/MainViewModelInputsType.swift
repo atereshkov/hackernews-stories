@@ -9,6 +9,12 @@
 import Foundation
 
 protocol MainViewModelInputsType {
+    func start()
+    func pullToRefreshAction()
     
+    func itemSelected(at index: Int)
+    func willDisplayCell(at index: Int)
+    func cellForRowCalled(at indexPath: IndexPath)
+    func didEndDisplayingCell(at indexPath: IndexPath)
 }
 

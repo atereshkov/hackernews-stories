@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol MainRouterType: RouterType {
+protocol MainRouterType: RouterType, LinkRoutable {
     
 }
 
