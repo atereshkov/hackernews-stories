@@ -12,6 +12,7 @@
 		A311224A2261F127008DF33E /* BlockRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31122492261F127008DF33E /* BlockRequestOperation.swift */; };
 		A311224C2261F9AD008DF33E /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311224B2261F9AD008DF33E /* ScanService.swift */; };
 		A311224E2262003E008DF33E /* ScanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311224D2262003E008DF33E /* ScanManager.swift */; };
+		A3984C88226223BB00AA81B9 /* StoryTypeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3984C87226223BB00AA81B9 /* StoryTypeOrder.swift */; };
 		A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD43225BB76C001717DC /* AppDelegate.swift */; };
 		A3C8AD46225BB76C001717DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD45225BB76C001717DC /* ViewController.swift */; };
 		A3C8AD49225BB76C001717DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3C8AD47225BB76C001717DC /* Main.storyboard */; };
@@ -84,6 +85,7 @@
 		A31122492261F127008DF33E /* BlockRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRequestOperation.swift; sourceTree = "<group>"; };
 		A311224B2261F9AD008DF33E /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
 		A311224D2262003E008DF33E /* ScanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanManager.swift; sourceTree = "<group>"; };
+		A3984C87226223BB00AA81B9 /* StoryTypeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTypeOrder.swift; sourceTree = "<group>"; };
 		A3C8AD40225BB76C001717DC /* hackernews-stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hackernews-stories.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C8AD43225BB76C001717DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3C8AD45225BB76C001717DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				A3C8AD97225BC59F001717DC /* dto */,
 				A3EE733F225FC9CC00F5A12B /* Icon.swift */,
 				A3EE7341225FC9EE00F5A12B /* IconType.swift */,
+				A3984C87226223BB00AA81B9 /* StoryTypeOrder.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				A3C8AD99225BC5DA001717DC /* Story.swift in Sources */,
 				A3EE7342225FC9EE00F5A12B /* IconType.swift in Sources */,
 				A3C8AD7C225BBC31001717DC /* MainRouter.swift in Sources */,
+				A3984C88226223BB00AA81B9 /* StoryTypeOrder.swift in Sources */,
 				A3C8AD46225BB76C001717DC /* ViewController.swift in Sources */,
 				A3C8ADB1225BD803001717DC /* RequestResponse.swift in Sources */,
 				A3C8AD75225BBA55001717DC /* BaseRouter.swift in Sources */,

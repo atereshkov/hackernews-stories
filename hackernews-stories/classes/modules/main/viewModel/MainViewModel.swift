@@ -13,7 +13,8 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     
     private struct Constants {
         static let paginationLimit: Int = 20
-        static let prefferedIconType: IconType = .apple
+        static let preferredIconType: IconType = .apple
+        static let sortOrder: StoryTypeOrder = .score
     }
     
     var inputs: MainViewModelInputsType { return self }
@@ -54,7 +55,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
 
 private extension MainViewModel {
     
-    func loadBestStories() {
+    func loadBestStories(limit: Int = Constants.paginationLimit, sortOrder: StoryTypeOrder) {
         showLoading?(true)
         storyService.getBestStoriesIds() { [weak self] stories, error in
             self?.showLoading?(false)
@@ -64,12 +65,12 @@ private extension MainViewModel {
             }
             self?.storiesIds = stories
             self?.totalItemsCount = stories.count
-            let ids = Array(stories.prefix(Constants.paginationLimit))
-            self?.loadItems(ids: ids)
+            let ids = Array(stories.prefix(limit))
+            self?.loadItems(ids: ids, sortOrder: sortOrder)
         }
     }
     
-    func loadItems(ids: [Int]) {
+    func loadItems(ids: [Int], sortOrder: StoryTypeOrder) {
         guard !isLoadingItemsInProgress else { return }
         isLoadingItemsInProgress = true
         showLoading?(true)
@@ -78,17 +79,16 @@ private extension MainViewModel {
                 self?.isLoadingItemsInProgress = false
                 self?.showLoading?(false)
             }
-            let sortedItems = stories.sorted { $0.score ?? 0 > $1.score ?? 0 }
+            let sortedItems = stories.sorted(by: sortOrder)
             self?.items.append(contentsOf: sortedItems)
             self?.reloadItems?()
         }
     }
     
-    func startIconScan(indexPath: IndexPath, item: StoryType) {
+    func startIconScan(indexPath: IndexPath, item: StoryType, preferredIcontType: IconType) {
         guard itemImages[item.id] == nil else { return }
         scanManager.scan(indexPath: indexPath, item: item) { [weak self] icons, indexPath in
-            let prefferedType = Constants.prefferedIconType
-            self?.itemImages[item.id] = icons.first(where: { $0.type == prefferedType })
+            self?.itemImages[item.id] = icons.first(where: { $0.type == preferredIcontType })
             self?.reloadRows?([indexPath], .none)
         }
     }
@@ -100,7 +100,7 @@ private extension MainViewModel {
 extension MainViewModel: MainViewModelInputsType {
     
     func start() {
-        loadBestStories()
+        loadBestStories(sortOrder: Constants.sortOrder)
     }
     
     func itemSelected(at index: Int) {
@@ -112,13 +112,13 @@ extension MainViewModel: MainViewModelInputsType {
         guard items.count < self.totalItemsCount else { return }
         if index >= items.count - 1 {
             let ids = Array(storiesIds[items.count...Constants.paginationLimit + items.count - 1])
-            loadItems(ids: ids)
+            loadItems(ids: ids, sortOrder: Constants.sortOrder)
         }
     }
     
     func cellForRowCalled(at indexPath: IndexPath) {
         guard let item = item(for: indexPath.row) else { return }
-        startIconScan(indexPath: indexPath, item: item)
+        startIconScan(indexPath: indexPath, item: item, preferredIcontType: Constants.preferredIconType)
     }
     
     func pullToRefreshAction() {
