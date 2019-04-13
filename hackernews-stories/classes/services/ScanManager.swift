@@ -52,12 +52,7 @@ final class ScanManager: ScanManagerProtocol {
         scanQueue.addOperation(scanHTMLOperation)
         
         if let host = url.host {
-            var url = host + "/favicon.ico"
-            if urlStr.contains("https://") {
-                url = "https://" + host + "/favicon.ico"
-            } else if urlStr.contains("http://") {
-                url = "http://" + host + "/favicon.ico"
-            }
+            let url = (url.scheme ?? "http://") + "://" + host + "/favicon.ico"
             let request = RootIconRequest.checkFavicon(url: url)
             let scanFaviconOperation = scanService.scanFavicon(data: request) { icon in
                 guard let icon = icon else { return }
