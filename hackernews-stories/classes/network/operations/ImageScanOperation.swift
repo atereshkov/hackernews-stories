@@ -17,12 +17,19 @@ class IconHTMLScanOperation: AsyncOperation {
         
         task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             defer { self?.finish() }
-            // TODO
-            let url = URL(string: "https://www.raywenderlich.com/apple-touch-icon.png")!
-            let icon = Icon(url: url, type: .favicon)
-            let url2 = URL(string: "https://freeiconshop.com/wp-content/uploads/edd/bulb-curvy-flat.png")!
-            let icon2 = Icon(url: url2, type: .apple)
-            completion([icon, icon2])
+            guard let data = data else {
+                completion([])
+                return
+            }
+            guard let html = String(data: data, encoding: .utf8) else {
+                completion([])
+                return
+            }
+            
+            let parser = HTMLIconURLParser(html: html)
+            let icons = parser.parse()
+            
+            completion(icons)
         }
     }
     

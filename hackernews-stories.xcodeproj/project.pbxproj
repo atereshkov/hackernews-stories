@@ -61,6 +61,9 @@
 		A3CC8F03226245C70029EA52 /* StubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F02226245C70029EA52 /* StubRouter.swift */; };
 		A3CC8F05226265660029EA52 /* ScanRootFaviconOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F04226265660029EA52 /* ScanRootFaviconOperation.swift */; };
 		A3CC8F07226265970029EA52 /* RootIconRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F06226265970029EA52 /* RootIconRequest.swift */; };
+		A3CC8F0922628D990029EA52 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F0822628D990029EA52 /* String.swift */; };
+		A3CC8F0C2262909C0029EA52 /* IconURLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F0B2262909C0029EA52 /* IconURLParser.swift */; };
+		A3CC8F0E226290E40029EA52 /* HTMLIconURLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F0D226290E40029EA52 /* HTMLIconURLParser.swift */; };
 		A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
@@ -148,6 +151,9 @@
 		A3CC8F02226245C70029EA52 /* StubRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRouter.swift; sourceTree = "<group>"; };
 		A3CC8F04226265660029EA52 /* ScanRootFaviconOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanRootFaviconOperation.swift; sourceTree = "<group>"; };
 		A3CC8F06226265970029EA52 /* RootIconRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootIconRequest.swift; sourceTree = "<group>"; };
+		A3CC8F0822628D990029EA52 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A3CC8F0B2262909C0029EA52 /* IconURLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconURLParser.swift; sourceTree = "<group>"; };
+		A3CC8F0D226290E40029EA52 /* HTMLIconURLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLIconURLParser.swift; sourceTree = "<group>"; };
 		A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
@@ -363,6 +369,7 @@
 				A3EE71BF225D207300F5A12B /* UITableView+Cell.swift */,
 				A3EE71C1225D20D900F5A12B /* UITableViewCell+Identifier.swift */,
 				A3EE7345225FD78900F5A12B /* UIImageView.swift */,
+				A3CC8F0822628D990029EA52 /* String.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -474,6 +481,15 @@
 			path = router;
 			sourceTree = "<group>";
 		};
+		A3CC8F0A226290840029EA52 /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				A3CC8F0B2262909C0029EA52 /* IconURLParser.swift */,
+				A3CC8F0D226290E40029EA52 /* HTMLIconURLParser.swift */,
+			);
+			path = parser;
+			sourceTree = "<group>";
+		};
 		A3EE71B5225D1BDF00F5A12B /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +511,7 @@
 		A3EE71C3225D22FF00F5A12B /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				A3CC8F0A226290840029EA52 /* parser */,
 				A3EE71C6225D233B00F5A12B /* logger */,
 			);
 			path = utils;
@@ -623,6 +640,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CC8F0922628D990029EA52 /* String.swift in Sources */,
 				A3C8AD6F225BBA13001717DC /* AppRouter.swift in Sources */,
 				A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */,
 				A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */,
@@ -631,6 +649,7 @@
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
 				A3EE7346225FD78900F5A12B /* UIImageView.swift in Sources */,
 				A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */,
+				A3CC8F0C2262909C0029EA52 /* IconURLParser.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,
 				A30F7B64226145AC008A827A /* ImageScanOperation.swift in Sources */,
 				A3C8ADA7225BD44F001717DC /* APIConfiguration.swift in Sources */,
@@ -652,6 +671,7 @@
 				A3C8AD46225BB76C001717DC /* ViewController.swift in Sources */,
 				A3C8ADB1225BD803001717DC /* RequestResponse.swift in Sources */,
 				A3C8AD75225BBA55001717DC /* BaseRouter.swift in Sources */,
+				A3CC8F0E226290E40029EA52 /* HTMLIconURLParser.swift in Sources */,
 				A3C8AD79225BBA8D001717DC /* MainRoutable.swift in Sources */,
 				A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */,
 				A3C8ADAD225BD66D001717DC /* NetworkRequestExecutor.swift in Sources */,
