@@ -45,17 +45,27 @@ final class ScanManager: ScanManagerProtocol {
             }
         }
         
-        let scanOperation = scanService.scanHTML(url: url) { icons in
-            items.append(contentsOf: icons)
+        let scanHTMLOperation = scanService.scanHTML(url: url) { icons in
+            //items.append(contentsOf: icons)
         }
-        completionBlock.addDependency(scanOperation)
-        scanQueue.addOperation(scanOperation)
+        completionBlock.addDependency(scanHTMLOperation)
+        scanQueue.addOperation(scanHTMLOperation)
         
-        let scanOperation2 = scanService.scanHTML(url: url) { icons in
-            items.append(contentsOf: icons)
+        if let host = url.host {
+            var url = host + "/favicon.ico"
+            if urlStr.contains("https://") {
+                url = "https://" + host + "/favicon.ico"
+            } else if urlStr.contains("http://") {
+                url = "http://" + host + "/favicon.ico"
+            }
+            let request = RootIconRequest.checkFavicon(url: url)
+            let scanFaviconOperation = scanService.scanFavicon(data: request) { icon in
+                guard let icon = icon else { return }
+                items.append(icon)
+            }
+            completionBlock.addDependency(scanFaviconOperation)
+            scanQueue.addOperation(scanFaviconOperation)
         }
-        completionBlock.addDependency(scanOperation2)
-        scanQueue.addOperation(scanOperation2)
         
         scanInProgress[indexPath] = completionBlock
         OperationQueue.main.addOperation(completionBlock)

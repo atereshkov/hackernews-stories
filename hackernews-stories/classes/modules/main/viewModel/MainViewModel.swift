@@ -88,7 +88,9 @@ private extension MainViewModel {
     func startIconScan(indexPath: IndexPath, item: StoryType, preferredIcontType: IconType) {
         guard itemImages[item.id] == nil else { return }
         scanManager.scan(indexPath: indexPath, item: item) { [weak self] icons, indexPath in
-            self?.itemImages[item.id] = icons.first(where: { $0.type == preferredIcontType })
+            let prefferedIcon = icons.first(where: { $0.type == preferredIcontType })
+            let icon = prefferedIcon ?? icons.first
+            self?.itemImages[item.id] = icon
             self?.reloadRows?([indexPath], .none)
         }
     }

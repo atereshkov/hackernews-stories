@@ -59,6 +59,8 @@
 		A3CC8EFF226244AC0029EA52 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8EFE226244AC0029EA52 /* AppRouter.swift */; };
 		A3CC8F01226245AA0029EA52 /* BaseRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F00226245AA0029EA52 /* BaseRouterTests.swift */; };
 		A3CC8F03226245C70029EA52 /* StubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F02226245C70029EA52 /* StubRouter.swift */; };
+		A3CC8F05226265660029EA52 /* ScanRootFaviconOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F04226265660029EA52 /* ScanRootFaviconOperation.swift */; };
+		A3CC8F07226265970029EA52 /* RootIconRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F06226265970029EA52 /* RootIconRequest.swift */; };
 		A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
@@ -144,6 +146,8 @@
 		A3CC8EFE226244AC0029EA52 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		A3CC8F00226245AA0029EA52 /* BaseRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterTests.swift; sourceTree = "<group>"; };
 		A3CC8F02226245C70029EA52 /* StubRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubRouter.swift; sourceTree = "<group>"; };
+		A3CC8F04226265660029EA52 /* ScanRootFaviconOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanRootFaviconOperation.swift; sourceTree = "<group>"; };
+		A3CC8F06226265970029EA52 /* RootIconRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootIconRequest.swift; sourceTree = "<group>"; };
 		A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C8ADA4225BD13C001717DC /* StoryRequest.swift */,
+				A3CC8F06226265970029EA52 /* RootIconRequest.swift */,
 			);
 			path = endpoints;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				A31122492261F127008DF33E /* BlockRequestOperation.swift */,
 				A3EE71CE225D378900F5A12B /* RequestOperation.swift */,
 				A30F7B63226145AC008A827A /* ImageScanOperation.swift */,
+				A3CC8F04226265660029EA52 /* ScanRootFaviconOperation.swift */,
 			);
 			path = operations;
 			sourceTree = "<group>";
@@ -638,6 +644,7 @@
 				A3C8ADA2225BCBAB001717DC /* RequestData.swift in Sources */,
 				A3C8AD7E225BBC6D001717DC /* MainView.swift in Sources */,
 				A3C8ADC4225BF5DE001717DC /* ContainerRecord.swift in Sources */,
+				A3CC8F05226265660029EA52 /* ScanRootFaviconOperation.swift in Sources */,
 				A3C8AD99225BC5DA001717DC /* Story.swift in Sources */,
 				A3EE7342225FC9EE00F5A12B /* IconType.swift in Sources */,
 				A3C8AD7C225BBC31001717DC /* MainRouter.swift in Sources */,
@@ -662,6 +669,7 @@
 				A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */,
 				A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */,
 				A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */,
+				A3CC8F07226265970029EA52 /* RootIconRequest.swift in Sources */,
 				A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */,
 				A3C8AD8A225BBD97001717DC /* MainViewModelType.swift in Sources */,
 				A3C8AD84225BBCDD001717DC /* MainViewModel.swift in Sources */,
