@@ -22,8 +22,14 @@ extension MainViewTableViewDatasource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: MainViewCell = tableView.dequeueReusableCell(for: indexPath) else { return UITableViewCell() }
-        guard let item = viewModel?.item(for: indexPath.row) else { return UITableViewCell() }
+        guard let item = viewModel?.ouputs.item(for: indexPath.row) else { return UITableViewCell() }
         cell.update(with: item)
+        Swift.print("Update cell: \(item.title), row: \(indexPath.row)")
+        if let icon = viewModel?.ouputs.icon(for: indexPath.row) {
+            Swift.print("Update image: \(icon), row: \(indexPath.row)")
+            cell.setIcon(icon)
+        }
+        viewModel?.inputs.cellForRowCalled(at: indexPath)
         return cell
     }
     

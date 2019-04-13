@@ -97,9 +97,8 @@ final class StoryService: StoryServiceProtocol {
                 switch response {
                 case .json(_):
                     DispatchQueue.main.async {
-                        
+                        completion([], nil)
                     }
-                    completion([], nil)
                     ConsoleLog.d("JSON parsing is not handled")
                     break
                 case .data(let data):

@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainViewModelCallbacksType {
     var reloadItems: (() -> Void)? { get set }
+    var reloadRows: ((_ paths: [IndexPath], _ animation: UITableView.RowAnimation) -> Void)? { get set }
     var showLoading: ((_ show: Bool) -> Void)? { get set }
 }

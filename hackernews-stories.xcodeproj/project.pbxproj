@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30F7B64226145AC008A827A /* ImageScaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F7B63226145AC008A827A /* ImageScaner.swift */; };
+		A311224022615606008DF33E /* NetworkRequestExecutor2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311223F22615606008DF33E /* NetworkRequestExecutor2.swift */; };
+		A311224222615698008DF33E /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311224122615698008DF33E /* AsyncOperation.swift */; };
 		A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD43225BB76C001717DC /* AppDelegate.swift */; };
 		A3C8AD46225BB76C001717DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD45225BB76C001717DC /* ViewController.swift */; };
 		A3C8AD49225BB76C001717DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3C8AD47225BB76C001717DC /* Main.storyboard */; };
@@ -76,6 +79,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A30F7B63226145AC008A827A /* ImageScaner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaner.swift; sourceTree = "<group>"; };
+		A311223F22615606008DF33E /* NetworkRequestExecutor2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestExecutor2.swift; sourceTree = "<group>"; };
+		A311224122615698008DF33E /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		A3C8AD40225BB76C001717DC /* hackernews-stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hackernews-stories.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C8AD43225BB76C001717DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3C8AD45225BB76C001717DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +384,7 @@
 				A3C8ADAC225BD66D001717DC /* NetworkRequestExecutor.swift */,
 				A3C8ADAE225BD7E4001717DC /* NetworkError.swift */,
 				A3C8ADB0225BD803001717DC /* RequestResponse.swift */,
+				A311223F22615606008DF33E /* NetworkRequestExecutor2.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -449,7 +456,9 @@
 			isa = PBXGroup;
 			children = (
 				A3EE71CC225D354F00F5A12B /* AsynchronousOperation.swift */,
+				A311224122615698008DF33E /* AsyncOperation.swift */,
 				A3EE71CE225D378900F5A12B /* RequestOperation.swift */,
+				A30F7B63226145AC008A827A /* ImageScaner.swift */,
 			);
 			path = operations;
 			sourceTree = "<group>";
@@ -567,9 +576,12 @@
 				A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,
 				A3EE71CD225D354F00F5A12B /* AsynchronousOperation.swift in Sources */,
+				A311224022615606008DF33E /* NetworkRequestExecutor2.swift in Sources */,
+				A30F7B64226145AC008A827A /* ImageScaner.swift in Sources */,
 				A3C8ADA7225BD44F001717DC /* APIConfiguration.swift in Sources */,
 				A3C8AD9C225BCB4C001717DC /* ResponseDataType.swift in Sources */,
 				A3C8ADAB225BD627001717DC /* RequestExecutorFactory.swift in Sources */,
+				A311224222615698008DF33E /* AsyncOperation.swift in Sources */,
 				A3C8ADA0225BCB8D001717DC /* RequestParameters.swift in Sources */,
 				A3EE71CA225D24C300F5A12B /* MainViewTableDatasource.swift in Sources */,
 				A3EE71CF225D378900F5A12B /* RequestOperation.swift in Sources */,

@@ -37,6 +37,11 @@ final class MainView: BaseView<MainViewModel> {
                 self?.showLoading(show)
             }
         }
+        viewModel?.callbacks.reloadRows = { [weak self] indexPaths, animation in
+            DispatchQueue.main.async { [weak self] in
+                self?.reloadRows(at: indexPaths, animation)
+            }
+        }
         
         viewModel?.inputs.start()
     }
@@ -72,6 +77,18 @@ private extension MainView {
         } else {
             activityIndicator.stopAnimating()
             pullToRefreshControl.endRefreshing()
+        }
+    }
+    
+    func reloadRows(at indexPaths: [IndexPath], _ animation: UITableView.RowAnimation) {
+        if animation == .none {
+            UIView.performWithoutAnimation {
+                let contentOffset = tableView.contentOffset
+                tableView.reloadRows(at: indexPaths, with: animation)
+                tableView.contentOffset = contentOffset
+            }
+        } else {
+            tableView.reloadRows(at: indexPaths, with: animation)
         }
     }
     

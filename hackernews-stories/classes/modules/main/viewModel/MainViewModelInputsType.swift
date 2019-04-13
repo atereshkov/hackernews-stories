@@ -13,6 +13,8 @@ protocol MainViewModelInputsType {
     
     func itemSelected(at index: Int)
     func willDisplayCell(at index: Int)
+    func willDisplayCell(at indexPath: IndexPath)
+    func cellForRowCalled(at indexPath: IndexPath)
     func pullToRefreshAction()
 }
 

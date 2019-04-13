@@ -20,12 +20,16 @@ final class MainViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        iconImageView.image = nil
     }
     
     func update(with item: StoryType) {
         titleLabel.text = item.title
         hostLabel.text = item.host
-        iconImageView.loadImage(with: "https://www.raywenderlich.com/apple-touch-icon.png")
+    }
+    
+    func setIcon(_ icon: IconProtocol) {
+        iconImageView.loadImage(with: icon.url.absoluteString)
     }
     
 }

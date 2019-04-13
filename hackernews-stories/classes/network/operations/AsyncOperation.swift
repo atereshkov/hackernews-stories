@@ -1,14 +1,14 @@
 //
-//  AsynchronousOperation.swift
+//  AsyncOperation.swift
 //  hackernews-stories
 //
-//  Created by Alexander Tereshkov on 4/9/19.
+//  Created by Alexander Tereshkov on 4/13/19.
 //  Copyright © 2019 Alexander Tereshkov. All rights reserved.
 //
 
 import Foundation
 
-class AsynchronousOperation: Operation {
+class AsyncOperation: Operation {
     
     /// State for the operation
     @objc private enum OperationState: Int {
@@ -71,7 +71,6 @@ class AsynchronousOperation: Operation {
     
     /// Call this function to finish an operation that is currently executing
     public final func finish() {
-        //if isExecuting { state = .finished }
-        state = .finished
+        if isExecuting { state = .finished }
     }
 }
