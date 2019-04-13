@@ -33,10 +33,8 @@ final class ScanManager: ScanManagerProtocol {
         guard scanInProgress[indexPath] == nil else { return }
         guard itemImages[item.id] == nil else { return }
         guard let urlStr = item.url, let url = URL(string: urlStr) else { return }
-        Swift.print("Start download item \(indexPath.row) : \(item.title)")
         
         let scanOperation = scanService.scan(url: url) { [weak self] icons in
-            Swift.print("Ended download for \(indexPath.row) and \(item.title)")
             self?.itemImages[item.id] = icons
             self?.scanInProgress.removeValue(forKey: indexPath)
             completion(icons, indexPath)

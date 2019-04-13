@@ -8,11 +8,15 @@
 
 import Foundation
 
-class RequestOperation: BlockRequestOperation {
+enum RequestOperationError: Error {
+    case responseMethodNotHandled
+}
+
+class RequestOperation<T: Decodable>: BlockRequestOperation {
     
     private weak var task: URLSessionTask?
     
-    init(executor: RequestExecutor, request: RequestData, completion: @escaping (Story?) -> Void) {
+    init(executor: RequestExecutor, request: RequestData, completion: @escaping (T?, Error?) -> Void) {
         super.init()
         
         let jsonDecoder = JSONDecoderService()
@@ -23,13 +27,12 @@ class RequestOperation: BlockRequestOperation {
             guard let response = response else { return }
             switch response {
             case .json(_):
-                ConsoleLog.d("JSON parsing is not handled")
-                break
+                completion(nil, RequestOperationError.responseMethodNotHandled)
             case .data(let data):
-                let entity = jsonDecoder.decodeJSON(type: Story.self, from: data)
-                completion(entity)
+                let entity = jsonDecoder.decodeJSON(type: T.self, from: data)
+                completion(entity, nil)
             case .error(_, let error):
-                ConsoleLog.e("Error occured: \(String(describing: error))")
+                completion(nil, error)
             }
         }
         task?.resume()

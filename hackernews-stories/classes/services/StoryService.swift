@@ -41,7 +41,6 @@ final class StoryService: StoryServiceProtocol {
                         completion(nil, nil)
                     }
                     ConsoleLog.d("JSON parsing is not handled")
-                    break
                 case .data(let data):
                     let entity = self?.jsonDecoder.decodeJSON(type: Story.self, from: data)
                     DispatchQueue.main.async {
@@ -73,7 +72,10 @@ final class StoryService: StoryServiceProtocol {
         
         for id in ids {
             let request = StoryRequest.getStory(id: id)
-            let operation = RequestOperation(executor: requestExecutor, request: request) { [weak self] story in
+            let operation = RequestOperation<Story>(executor: requestExecutor, request: request) { [weak self] story, error in
+                if let error = error {
+                    ConsoleLog.e(error)
+                }
                 guard let story = story else { return }
                 items.append(story)
             }
@@ -100,7 +102,6 @@ final class StoryService: StoryServiceProtocol {
                         completion([], nil)
                     }
                     ConsoleLog.d("JSON parsing is not handled")
-                    break
                 case .data(let data):
                     let array = self?.jsonDecoder.decodeJSON(type: [Int].self, from: data)
                     DispatchQueue.main.async {

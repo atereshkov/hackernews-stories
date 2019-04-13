@@ -20,6 +20,8 @@ class NetworkRequestExecutor: RequestExecutor {
         self.configuration = configuration
     }
     
+    // MARK: API
+    
     func execute(requestData: RequestData, completion: @escaping (RequestResponse?) -> Void) throws {
         let request = try self.prepare(data: requestData)
         task = prepareTask(requestData: requestData, request: request, completion: completion)
@@ -32,7 +34,9 @@ class NetworkRequestExecutor: RequestExecutor {
         return task
     }
     
-    func prepare(data: RequestData) throws -> URLRequest {
+    // MARK: Private
+    
+    private func prepare(data: RequestData) throws -> URLRequest {
         let fullUrl = "\(configuration.baseURL)/\(data.endpoint)"
         guard let url = URL(string: fullUrl) else {
             throw NetworkError.incorrectInput

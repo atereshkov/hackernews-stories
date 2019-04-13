@@ -45,11 +45,11 @@ extension UIImageView {
             self?.currentTask = nil
             
             if let error = error {
-                Swift.print(error)
+                ConsoleLog.e(error)
             }
             
             guard let data = data, let downloadedImage = UIImage(data: data) else {
-                Swift.print("Image downloaded, but error occured during extracting")
+                ConsoleLog.e("Image downloaded, but error occured during extracting")
                 return
             }
             
