@@ -8,7 +8,7 @@
 
 import Foundation
 
-class IconScanOperation: AsyncOperation {
+class IconHTMLScanOperation: AsyncOperation {
     
     private weak var task: URLSessionTask?
     

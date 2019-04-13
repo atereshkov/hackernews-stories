@@ -31,18 +31,34 @@ final class ScanManager: ScanManagerProtocol {
     }
     
     func scan(indexPath: IndexPath, item: StoryType, completion: @escaping ([IconProtocol], IndexPath) -> Void) {
+        var items: [IconProtocol] = []
+        
         guard scanInProgress[indexPath] == nil else { return }
         guard itemImages[item.id] == nil else { return }
         guard let urlStr = item.url, let url = URL(string: urlStr) else { return }
         
-        let scanOperation = scanService.scan(url: url) { [weak self] icons in
-            self?.itemImages[item.id] = icons
-            self?.scanInProgress.removeValue(forKey: indexPath)
-            completion(icons, indexPath)
+        let completionBlock = BlockOperation { [weak self] in
+            DispatchQueue.main.async {
+                self?.itemImages[item.id] = items
+                self?.scanInProgress.removeValue(forKey: indexPath)
+                completion(items, indexPath)
+            }
         }
         
-        scanInProgress[indexPath] = scanOperation
+        let scanOperation = scanService.scanHTML(url: url) { icons in
+            items.append(contentsOf: icons)
+        }
+        completionBlock.addDependency(scanOperation)
         scanQueue.addOperation(scanOperation)
+        
+        let scanOperation2 = scanService.scanHTML(url: url) { icons in
+            items.append(contentsOf: icons)
+        }
+        completionBlock.addDependency(scanOperation2)
+        scanQueue.addOperation(scanOperation2)
+        
+        scanInProgress[indexPath] = completionBlock
+        OperationQueue.main.addOperation(completionBlock)
     }
     
     func cancel(indexPath: IndexPath, item: StoryType) {

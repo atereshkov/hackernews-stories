@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ScanServiceProtocol {
-    func scan(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation
+    func scanHTML(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation
 }
 
 final class ScanService: ScanServiceProtocol {
@@ -18,8 +18,8 @@ final class ScanService: ScanServiceProtocol {
         
     }
     
-    func scan(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation {
-        let scanOperation = IconScanOperation(url: url) { [weak self] icons in
+    func scanHTML(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation {
+        let scanOperation = IconHTMLScanOperation(url: url) { icons in
             completion(icons)
         }
         return scanOperation
