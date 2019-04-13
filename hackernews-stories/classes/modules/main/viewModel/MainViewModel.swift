@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+class PendingOperations {
+    lazy var scanInProgress: [IndexPath: Operation] = [:]
+    lazy var scanQueue: OperationQueue = {
+        var queue = OperationQueue()
+        queue.name = "ImageScanQueue"
+        //queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
+}
+
 final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     
     private struct Constants {
@@ -29,13 +39,12 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     private var isLoadingItemsInProgress: Bool = false
     
     private let storyService: StoryServiceProtocol
-    private let scanService: ScanServiceProtocol
+    //private let scanService: ScanServiceProtocol = ScanService()
     
     let pendingOperations = PendingOperations()
     
     override init(session: SessionType) {
         self.storyService = session.resolve()
-        self.scanService = session.resolve()
         super.init(session: session)
     }
     
@@ -83,30 +92,28 @@ private extension MainViewModel {
         }
     }
     
-    func startDownload(indexPath: IndexPath) {
-        //Swift.print("Start download for: \(indexPath.row)")
-        guard pendingOperations.downloadsInProgress[indexPath] == nil else {
-            return
-        }
+    func startScan(indexPath: IndexPath) {
+        guard pendingOperations.scanInProgress[indexPath] == nil else { return }
         
         guard let item = item(for: indexPath.row), let urlStr = item.url else { return }
         guard itemImages[item.id] == nil else { return }
         Swift.print("Start download item \(indexPath.row) : \(item.title)")
-
-        let scaner = ImageScaner(url: URL(string: "https://google.com/")!) { [weak self] icon in
+        
+        let scaner = ImageScanOperation(url: URL(string: "https://google.com/")!) { [weak self] icon in
             Swift.print("Ended download for \(indexPath.row) and \(item.title)")
             self?.itemImages[item.id] = icon
-            self?.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+            self?.pendingOperations.scanInProgress.removeValue(forKey: indexPath)
             self?.reloadRows?([indexPath], .none)
         }
 
-        pendingOperations.downloadsInProgress[indexPath] = scaner
-        pendingOperations.downloadQueue.addOperation(scaner)
+        pendingOperations.scanInProgress[indexPath] = scaner
+        pendingOperations.scanQueue.addOperation(scaner)
     }
     
 }
 
 // MARK: MainViewModelInputsType
+
 extension MainViewModel: MainViewModelInputsType {
     
     func start() {
@@ -126,12 +133,8 @@ extension MainViewModel: MainViewModelInputsType {
         }
     }
     
-    func willDisplayCell(at indexPath: IndexPath) {
-        //startDownload(indexPath: indexPath)
-    }
-    
     func cellForRowCalled(at indexPath: IndexPath) {
-        startDownload(indexPath: indexPath)
+        startScan(indexPath: indexPath)
     }
     
     func pullToRefreshAction() {
@@ -157,14 +160,4 @@ extension MainViewModel: MainViewModelOutputsType {
         return itemImage
     }
     
-}
-
-class PendingOperations {
-    lazy var downloadsInProgress: [IndexPath: Operation] = [:]
-    lazy var downloadQueue: OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "Download queue"
-        queue.maxConcurrentOperationCount = 1
-        return queue
-    }()
 }

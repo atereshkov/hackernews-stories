@@ -8,17 +8,16 @@
 
 import Foundation
 
-class RequestOperation: AsynchronousOperation {
+class RequestOperation: BlockRequestOperation {
     
     private weak var task: URLSessionTask?
-    let session: URLSession = URLSession(configuration: .default)
     
     init(executor: RequestExecutor, request: RequestData, completion: @escaping (Story?) -> Void) {
         super.init()
         
         let jsonDecoder = JSONDecoderService()
         
-        task = try? executor.execute(request: request) { [weak self] response in
+        task = try? executor.prepare(requestData: request) { [weak self] response in
             defer { self?.finish() }
             
             guard let response = response else { return }
@@ -33,6 +32,7 @@ class RequestOperation: AsynchronousOperation {
                 ConsoleLog.e("Error occured: \(String(describing: error))")
             }
         }
+        task?.resume()
     }
     
     override func cancel() {

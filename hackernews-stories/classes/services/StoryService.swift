@@ -28,7 +28,7 @@ final class StoryService: StoryServiceProtocol {
         let requestData: RequestData = StoryRequest.getStory(id: id)
         
         do {
-            _ = try requestExecutor.execute(request: requestData) { [weak self] response in
+            _ = try requestExecutor.execute(requestData: requestData) { [weak self] response in
                 guard let response = response else {
                     DispatchQueue.main.async {
                         completion(nil, NetworkError.noData)
@@ -87,7 +87,7 @@ final class StoryService: StoryServiceProtocol {
         let requestData: RequestData = StoryRequest.getBeststories
         
         do {
-            _ = try requestExecutor.execute(request: requestData) { [weak self] response in
+            _ = try requestExecutor.execute(requestData: requestData) { [weak self] response in
                 guard let response = response else {
                     DispatchQueue.main.async {
                         completion([], NetworkError.noData)

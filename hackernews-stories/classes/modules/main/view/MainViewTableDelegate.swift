@@ -30,7 +30,6 @@ extension MainViewTableViewDelegate: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        viewModel?.inputs.willDisplayCell(at: indexPath)
         viewModel?.inputs.willDisplayCell(at: indexPath.item)
     }
     

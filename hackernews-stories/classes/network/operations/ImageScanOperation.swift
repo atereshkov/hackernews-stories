@@ -1,5 +1,5 @@
 //
-//  ImageScaner.swift
+//  ImageScanOperation.swift
 //  hackernews-stories
 //
 //  Created by Alexander Tereshkov on 4/13/19.
@@ -8,10 +8,9 @@
 
 import Foundation
 
-class ImageScaner: AsyncOperation {
+class ImageScanOperation: AsyncOperation {
     
     private weak var task: URLSessionTask?
-    let session: URLSession = URLSession(configuration: .default)
     
     init(url: URL, completion: @escaping (IconProtocol?) -> Void) {
         super.init()
@@ -23,7 +22,6 @@ class ImageScaner: AsyncOperation {
             let icon = Icon(url: url, type: .apple)
             completion(icon)
         }
-        task?.resume()
     }
     
     override func cancel() {
