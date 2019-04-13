@@ -18,7 +18,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     }
     
     var inputs: MainViewModelInputsType { return self }
-    var ouputs: MainViewModelOutputsType { return self }
+    var outputs: MainViewModelOutputsType { return self }
     var callbacks: MainViewModelCallbacksType {
         get { return self }
         set { return }

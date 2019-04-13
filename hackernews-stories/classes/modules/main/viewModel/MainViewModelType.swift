@@ -10,6 +10,6 @@ import Foundation
 
 protocol MainViewModelType: ViewModelType, MainViewModelInputsType, MainViewModelOutputsType, MainViewModelCallbacksType {
     var inputs: MainViewModelInputsType { get }
-    var ouputs: MainViewModelOutputsType { get }
+    var outputs: MainViewModelOutputsType { get }
     var callbacks: MainViewModelCallbacksType { get set }
 }
