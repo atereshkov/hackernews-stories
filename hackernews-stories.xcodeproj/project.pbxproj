@@ -11,6 +11,7 @@
 		A311224222615698008DF33E /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311224122615698008DF33E /* AsyncOperation.swift */; };
 		A311224A2261F127008DF33E /* BlockRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31122492261F127008DF33E /* BlockRequestOperation.swift */; };
 		A311224C2261F9AD008DF33E /* ScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311224B2261F9AD008DF33E /* ScanService.swift */; };
+		A311224E2262003E008DF33E /* ScanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311224D2262003E008DF33E /* ScanManager.swift */; };
 		A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD43225BB76C001717DC /* AppDelegate.swift */; };
 		A3C8AD46225BB76C001717DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C8AD45225BB76C001717DC /* ViewController.swift */; };
 		A3C8AD49225BB76C001717DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3C8AD47225BB76C001717DC /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 		A311224122615698008DF33E /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		A31122492261F127008DF33E /* BlockRequestOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRequestOperation.swift; sourceTree = "<group>"; };
 		A311224B2261F9AD008DF33E /* ScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanService.swift; sourceTree = "<group>"; };
+		A311224D2262003E008DF33E /* ScanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanManager.swift; sourceTree = "<group>"; };
 		A3C8AD40225BB76C001717DC /* hackernews-stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hackernews-stories.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3C8AD43225BB76C001717DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3C8AD45225BB76C001717DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				A3C8ADB4225BDA1A001717DC /* StoryService.swift */,
 				A311224B2261F9AD008DF33E /* ScanService.swift */,
 				A3EE7347225FD7D900F5A12B /* ImageCacheService.swift */,
+				A311224D2262003E008DF33E /* ScanManager.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				A3EE71C8225D24B800F5A12B /* MainViewTableDelegate.swift in Sources */,
 				A3C8ADC6225BF613001717DC /* SessionType.swift in Sources */,
 				A3EE72F7225E996900F5A12B /* LinkRouter.swift in Sources */,
+				A311224E2262003E008DF33E /* ScanManager.swift in Sources */,
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
 				A3EE7346225FD78900F5A12B /* UIImageView.swift in Sources */,
 				A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */,

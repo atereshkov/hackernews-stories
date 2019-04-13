@@ -9,20 +9,11 @@
 import Foundation
 import UIKit
 
-class PendingOperations {
-    lazy var scanInProgress: [IndexPath: Operation] = [:]
-    lazy var scanQueue: OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "ImageScanQueue"
-        //queue.maxConcurrentOperationCount = 1
-        return queue
-    }()
-}
-
 final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     
     private struct Constants {
         static let paginationLimit: Int = 20
+        static let prefferedIconType: IconType = .apple
     }
     
     var inputs: MainViewModelInputsType { return self }
@@ -39,12 +30,13 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     private var isLoadingItemsInProgress: Bool = false
     
     private let storyService: StoryServiceProtocol
-    //private let scanService: ScanServiceProtocol = ScanService()
-    
-    let pendingOperations = PendingOperations()
+    private let scanManager: ScanManagerProtocol
     
     override init(session: SessionType) {
         self.storyService = session.resolve()
+        
+        let scanService = ScanService()
+        self.scanManager = ScanManager(scanService: scanService)
         super.init(session: session)
     }
     
@@ -92,22 +84,13 @@ private extension MainViewModel {
         }
     }
     
-    func startScan(indexPath: IndexPath) {
-        guard pendingOperations.scanInProgress[indexPath] == nil else { return }
-        
-        guard let item = item(for: indexPath.row), let urlStr = item.url else { return }
+    func startIconScan(indexPath: IndexPath, item: StoryType) {
         guard itemImages[item.id] == nil else { return }
-        Swift.print("Start download item \(indexPath.row) : \(item.title)")
-        
-        let scaner = ImageScanOperation(url: URL(string: "https://google.com/")!) { [weak self] icon in
-            Swift.print("Ended download for \(indexPath.row) and \(item.title)")
-            self?.itemImages[item.id] = icon
-            self?.pendingOperations.scanInProgress.removeValue(forKey: indexPath)
+        scanManager.scan(indexPath: indexPath, item: item) { [weak self] icons, indexPath in
+            let prefferedType = Constants.prefferedIconType
+            self?.itemImages[item.id] = icons.first(where: { $0.type == prefferedType })
             self?.reloadRows?([indexPath], .none)
         }
-
-        pendingOperations.scanInProgress[indexPath] = scaner
-        pendingOperations.scanQueue.addOperation(scaner)
     }
     
 }
@@ -134,7 +117,8 @@ extension MainViewModel: MainViewModelInputsType {
     }
     
     func cellForRowCalled(at indexPath: IndexPath) {
-        startScan(indexPath: indexPath)
+        guard let item = item(for: indexPath.row) else { return }
+        startIconScan(indexPath: indexPath, item: item)
     }
     
     func pullToRefreshAction() {

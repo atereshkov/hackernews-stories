@@ -9,21 +9,20 @@
 import Foundation
 
 protocol ScanServiceProtocol {
-    
+    func scan(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation
 }
 
 final class ScanService: ScanServiceProtocol {
     
-    lazy var scanInProgress: [IndexPath: Operation] = [:]
-    lazy var scanQueue: OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "ImageScanQueue"
-        //queue.maxConcurrentOperationCount = 1
-        return queue
-    }()
-    
     init() {
         
+    }
+    
+    func scan(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation {
+        let scanOperation = IconScanOperation(url: url) { [weak self] icons in
+            completion(icons)
+        }
+        return scanOperation
     }
     
 }
