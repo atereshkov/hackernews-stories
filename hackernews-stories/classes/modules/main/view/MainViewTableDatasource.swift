@@ -24,9 +24,8 @@ extension MainViewTableViewDatasource: UITableViewDataSource {
         guard let cell: MainViewCell = tableView.dequeueReusableCell(for: indexPath) else { return UITableViewCell() }
         guard let item = viewModel?.outputs.item(for: indexPath.row) else { return UITableViewCell() }
         cell.update(with: item)
-        if let icon = viewModel?.outputs.icon(for: indexPath.row) {
-            cell.setIcon(icon)
-        }
+        let icon = viewModel?.outputs.icon(for: indexPath.row)
+        cell.setIcon(icon)
         viewModel?.inputs.cellForRowCalled(at: indexPath)
         return cell
     }
