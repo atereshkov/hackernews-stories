@@ -33,4 +33,8 @@ extension MainViewTableViewDelegate: UITableViewDelegate {
         viewModel?.inputs.willDisplayCell(at: indexPath.item)
     }
     
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        viewModel?.inputs.didEndDisplayingCell(at: indexPath)
+    }
+    
 }

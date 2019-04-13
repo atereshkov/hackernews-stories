@@ -10,6 +10,7 @@ import Foundation
 
 protocol ScanManagerProtocol {
     func scan(indexPath: IndexPath, item: StoryType, completion: @escaping ([IconProtocol], IndexPath) -> Void)
+    func cancel(indexPath: IndexPath, item: StoryType)
 }
 
 final class ScanManager: ScanManagerProtocol {
@@ -42,6 +43,13 @@ final class ScanManager: ScanManagerProtocol {
         
         scanInProgress[indexPath] = scanOperation
         scanQueue.addOperation(scanOperation)
+    }
+    
+    func cancel(indexPath: IndexPath, item: StoryType) {
+        guard scanInProgress[indexPath] != nil else { return }
+        scanInProgress[indexPath]?.cancel()
+        scanInProgress[indexPath] = nil
+        //Swift.print("Cancel image scan: \(indexPath.row), title: \(item.title ?? "")")
     }
     
 }

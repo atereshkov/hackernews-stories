@@ -93,6 +93,10 @@ private extension MainViewModel {
         }
     }
     
+    func cancelIconScan(indexPath: IndexPath, item: StoryType) {
+        scanManager.cancel(indexPath: indexPath, item: item)
+    }
+    
 }
 
 // MARK: MainViewModelInputsType
@@ -101,6 +105,11 @@ extension MainViewModel: MainViewModelInputsType {
     
     func start() {
         loadBestStories(sortOrder: Constants.sortOrder)
+    }
+    
+    func pullToRefreshAction() {
+        items.removeAll()
+        start()
     }
     
     func itemSelected(at index: Int) {
@@ -121,9 +130,9 @@ extension MainViewModel: MainViewModelInputsType {
         startIconScan(indexPath: indexPath, item: item, preferredIcontType: Constants.preferredIconType)
     }
     
-    func pullToRefreshAction() {
-        items.removeAll()
-        start()
+    func didEndDisplayingCell(at indexPath: IndexPath) {
+        guard let item = item(for: indexPath.row) else { return }
+        cancelIconScan(indexPath: indexPath, item: item)
     }
     
 }
