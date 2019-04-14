@@ -2,4 +2,6 @@
 
 # hackernews-stories
 
-### iOS application that aggregates and shows some stories from HackerNews API
+iOS application that aggregates and shows some stories from HackerNews API
+
+https://github.com/HackerNews/API
