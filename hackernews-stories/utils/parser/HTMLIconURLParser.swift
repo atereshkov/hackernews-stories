@@ -48,9 +48,7 @@ class HTMLIconURLParser: IconURLParser {
     /// Parses link with specific pattern from HTML String
     private func parseLink(pattern: ParserPatternProtocol) -> String? {
         // Parse entire line
-        let start = "<link rel=\"icon\""
-        let end = ">"
-        let parsed = html.substring(from: start, to: end, options: .caseInsensitive)
+        let parsed = html.substring(from: pattern.start, to: pattern.end, options: .caseInsensitive)
         
         // Parse link from line
         let from = "href=\""
