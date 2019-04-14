@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol PatternProvider {
+    func getPatterns() -> [ParserPatternProtocol]
+}

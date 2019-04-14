@@ -26,7 +26,8 @@ class IconHTMLScanOperation: AsyncOperation {
                 return
             }
             
-            let parser = HTMLIconURLParser(html: html)
+            let patternProvider: PatternProvider = LocalPatternProvider()
+            let parser = HTMLIconURLParser(html: html, patternProvider: patternProvider)
             let icons = parser.parse(baseURL: url)
             
             completion(icons)

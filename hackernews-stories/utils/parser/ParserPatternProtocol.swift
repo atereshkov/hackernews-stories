@@ -1,5 +1,5 @@
 //
-//  ParserPattern.swift
+//  ParserPatternProtocol.swift
 //  hackernews-stories
 //
 //  Created by Alexander Tereshkov on 4/14/19.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct ParserPattern: ParserPatternProtocol {
-    let start: String
-    let end: String
-    let type: IconType
+protocol ParserPatternProtocol {
+    var start: String { get }
+    var end: String { get }
+    var type: IconType { get }
 }

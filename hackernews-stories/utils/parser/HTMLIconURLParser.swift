@@ -11,9 +11,11 @@ import Foundation
 class HTMLIconURLParser: IconURLParser {
     
     private let html: String
+    private let patternProvider: PatternProvider
     
-    init(html: String) {
+    init(html: String, patternProvider: PatternProvider) {
         self.html = html
+        self.patternProvider = patternProvider
     }
     
     // MARK: API
@@ -21,29 +23,26 @@ class HTMLIconURLParser: IconURLParser {
     /// Returns an array of `IconProtocol` that parsed from HTML String
     func parse(baseURL: URL) -> [IconProtocol] {
         var icons: [IconProtocol] = []
-        let startApple = "<link rel=\"apple-touch-icon\""
-        let endApple = ">"
-        let applePattern = ParserPattern(start: startApple, end: endApple)
-        guard let appleURL = parseIconURL(pattern: applePattern, baseURL: baseURL) else { return icons }
-        let appleIcon = Icon(url: appleURL, type: .apple)
-        icons.append(appleIcon)
         
-        let startIcon = "<link rel=\"icon\""
-        let endIcon = ">"
-        let faviconPattern = ParserPattern(start: startIcon, end: endIcon)
-        guard let faviconURL = parseIconURL(pattern: faviconPattern, baseURL: baseURL) else { return icons }
-        let favicon = Icon(url: faviconURL, type: .favicon)
-        icons.append(favicon)
+        let patterns = patternProvider.getPatterns()
+        
+        for pattern in patterns {
+            let icon = parseIcon(pattern: pattern, baseURL: baseURL)
+            guard let parsedIcon = icon else { continue }
+            icons.append(parsedIcon)
+        }
         
         return icons
     }
     
     // MARK: Private
     
-    private func parseIconURL(pattern: ParserPatternProtocol, baseURL: URL) -> URL? {
+    private func parseIcon(pattern: ParserPatternProtocol, baseURL: URL) -> Icon? {
         guard let parsedLink = parseLink(pattern: pattern) else { return nil }
         let constructor = URLConstructor(link: parsedLink, baseURL: baseURL)
-        return constructor.constructURL()
+        guard let url = constructor.constructURL() else { return nil }
+        let icon = Icon(url: url, type: pattern.type)
+        return icon
     }
     
     /// Parses link with specific pattern from HTML String

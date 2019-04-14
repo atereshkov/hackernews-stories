@@ -68,6 +68,8 @@
 		A3CC8F13226326AC0029EA52 /* URLConstructorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F12226326AC0029EA52 /* URLConstructorProtocol.swift */; };
 		A3CC8F15226329320029EA52 /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F14226329320029EA52 /* URLConstructor.swift */; };
 		A3CC8F1822632BAB0029EA52 /* PatternProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F1722632BAB0029EA52 /* PatternProvider.swift */; };
+		A3CC8F1A2263324D0029EA52 /* LocalPatternProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F192263324D0029EA52 /* LocalPatternProvider.swift */; };
+		A3CC8F1C226333940029EA52 /* ParserPatternProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F1B226333940029EA52 /* ParserPatternProtocol.swift */; };
 		A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
@@ -162,6 +164,8 @@
 		A3CC8F12226326AC0029EA52 /* URLConstructorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructorProtocol.swift; sourceTree = "<group>"; };
 		A3CC8F14226329320029EA52 /* URLConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
 		A3CC8F1722632BAB0029EA52 /* PatternProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternProvider.swift; sourceTree = "<group>"; };
+		A3CC8F192263324D0029EA52 /* LocalPatternProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPatternProvider.swift; sourceTree = "<group>"; };
+		A3CC8F1B226333940029EA52 /* ParserPatternProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserPatternProtocol.swift; sourceTree = "<group>"; };
 		A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
@@ -497,6 +501,7 @@
 				A3CC8F0B2262909C0029EA52 /* IconURLParser.swift */,
 				A3CC8F0D226290E40029EA52 /* HTMLIconURLParser.swift */,
 				A3CC8F0F226324910029EA52 /* ParserPattern.swift */,
+				A3CC8F1B226333940029EA52 /* ParserPatternProtocol.swift */,
 			);
 			path = parser;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				A3CC8F1722632BAB0029EA52 /* PatternProvider.swift */,
+				A3CC8F192263324D0029EA52 /* LocalPatternProvider.swift */,
 			);
 			path = provider;
 			sourceTree = "<group>";
@@ -677,6 +683,7 @@
 				A3C8AD82225BBCA4001717DC /* BaseViewModel.swift in Sources */,
 				A3EE7346225FD78900F5A12B /* UIImageView.swift in Sources */,
 				A3EE72F5225E767500F5A12B /* MainViewModelCallbacksType.swift in Sources */,
+				A3CC8F1A2263324D0029EA52 /* LocalPatternProvider.swift in Sources */,
 				A3CC8F0C2262909C0029EA52 /* IconURLParser.swift in Sources */,
 				A3C8ADB5225BDA1A001717DC /* StoryService.swift in Sources */,
 				A30F7B64226145AC008A827A /* ImageScanOperation.swift in Sources */,
@@ -707,6 +714,7 @@
 				A3C8AD9E225BCB6C001717DC /* RequestHTTPMethod.swift in Sources */,
 				A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */,
 				A3CC8F10226324910029EA52 /* ParserPattern.swift in Sources */,
+				A3CC8F1C226333940029EA52 /* ParserPatternProtocol.swift in Sources */,
 				A3EE7348225FD7D900F5A12B /* ImageCacheService.swift in Sources */,
 				A3EE71C5225D233800F5A12B /* ConsoleLog.swift in Sources */,
 				A3C8AD6D225BB9F3001717DC /* AppRouterProtocol.swift in Sources */,
