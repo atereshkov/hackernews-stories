@@ -12,6 +12,8 @@ final class MainView: BaseView<MainViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var noInternetView: UIView!
+    
     private let pullToRefreshControl = UIRefreshControl()
     
     private var tableViewDelegate: MainViewTableViewDelegate?
@@ -42,6 +44,11 @@ final class MainView: BaseView<MainViewModel> {
                 self?.reloadRows(at: indexPaths, animation)
             }
         }
+        viewModel?.callbacks.updateState = { [weak self] state in
+            DispatchQueue.main.async { [weak self] in
+                self?.handle(state)
+            }
+        }
         
         viewModel?.inputs.start()
     }
@@ -51,9 +58,8 @@ final class MainView: BaseView<MainViewModel> {
 private extension MainView {
     
     func setupView() {
-        //navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.backBarButtonTitle = ""
-        navigationItem.title = "Stories"
+        navigationItem.title = "main.nav-title".localized
     }
     
     func setupTableView() {
@@ -71,7 +77,6 @@ private extension MainView {
     }
     
     func showLoading(_ show: Bool) {
-        //tableView.isHidden = show
         if show {
             activityIndicator.startAnimating()
         } else {
@@ -80,12 +85,19 @@ private extension MainView {
         }
     }
     
+    func handle(_ state: MainViewState) {
+        switch state {
+        case .noInternet:
+            showNoInternetConnectionAlert()
+        }
+    }
+    
     func reloadRows(at indexPaths: [IndexPath], _ animation: UITableView.RowAnimation) {
         if animation == .none {
             UIView.performWithoutAnimation {
-                let contentOffset = tableView.contentOffset
+                //let contentOffset = tableView.contentOffset
                 tableView.reloadRows(at: indexPaths, with: animation)
-                tableView.contentOffset = contentOffset
+                //tableView.contentOffset = contentOffset
             }
         } else {
             tableView.reloadRows(at: indexPaths, with: animation)

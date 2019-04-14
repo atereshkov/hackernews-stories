@@ -55,6 +55,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
     var reloadItems: (() -> Void)?
     var showLoading: ((Bool) -> Void)?
     var reloadRows: (([IndexPath], UITableView.RowAnimation) -> Void)?
+    var updateState: ((MainViewState) -> Void)?
     
 }
 
@@ -64,10 +65,13 @@ private extension MainViewModel {
         showLoading?(true)
         storyService.getBestStoriesIds() { [weak self] stories, error in
             self?.showLoading?(false)
-            guard let stories = stories else {
-                self?.showLoading?(false)
+            
+            if let error = error as? NetworkError, error == .noInternetConnection {
+                self?.updateState?(.noInternet)
                 return
             }
+            
+            guard let stories = stories else { return }
             self?.storiesIds = stories
             self?.totalItemsCount = stories.count
             let ids = Array(stories.prefix(limit))

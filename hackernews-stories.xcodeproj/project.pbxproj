@@ -74,6 +74,9 @@
 		A3CC8F26226340660029EA52 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3CC8F28226340660029EA52 /* Localizable.strings */; };
 		A3CC8F2D226341040029EA52 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F2C226341040029EA52 /* String+Localized.swift */; };
 		A3CC8F30226345EB0029EA52 /* TimeAgoProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F2F226345EB0029EA52 /* TimeAgoProviderTests.swift */; };
+		A3CC8F322263497A0029EA52 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F312263497A0029EA52 /* MainViewState.swift */; };
+		A3CC8F3422634A7F0029EA52 /* UIKit+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F3322634A7F0029EA52 /* UIKit+Localized.swift */; };
+		A3CC8F3622634DBA0029EA52 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F3522634DBA0029EA52 /* UIViewController+Alert.swift */; };
 		A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
@@ -177,6 +180,9 @@
 		A3CC8F2B226340B50029EA52 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A3CC8F2C226341040029EA52 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		A3CC8F2F226345EB0029EA52 /* TimeAgoProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAgoProviderTests.swift; sourceTree = "<group>"; };
+		A3CC8F312263497A0029EA52 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
+		A3CC8F3322634A7F0029EA52 /* UIKit+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Localized.swift"; sourceTree = "<group>"; };
+		A3CC8F3522634DBA0029EA52 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
@@ -360,6 +366,7 @@
 				A3C8AD7D225BBC6D001717DC /* MainView.swift */,
 				A3EE71C7225D24B800F5A12B /* MainViewTableDelegate.swift */,
 				A3EE71C9225D24C300F5A12B /* MainViewTableDatasource.swift */,
+				A3CC8F312263497A0029EA52 /* MainViewState.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -395,6 +402,8 @@
 				A3EE7345225FD78900F5A12B /* UIImageView.swift */,
 				A3CC8F0822628D990029EA52 /* String.swift */,
 				A3CC8F2C226341040029EA52 /* String+Localized.swift */,
+				A3CC8F3322634A7F0029EA52 /* UIKit+Localized.swift */,
+				A3CC8F3522634DBA0029EA52 /* UIViewController+Alert.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -741,11 +750,13 @@
 				A3C8ADA2225BCBAB001717DC /* RequestData.swift in Sources */,
 				A3C8AD7E225BBC6D001717DC /* MainView.swift in Sources */,
 				A3C8ADC4225BF5DE001717DC /* ContainerRecord.swift in Sources */,
+				A3CC8F3422634A7F0029EA52 /* UIKit+Localized.swift in Sources */,
 				A3CC8F05226265660029EA52 /* ScanRootFaviconOperation.swift in Sources */,
 				A3C8AD99225BC5DA001717DC /* Story.swift in Sources */,
 				A3EE7342225FC9EE00F5A12B /* IconType.swift in Sources */,
 				A3C8AD7C225BBC31001717DC /* MainRouter.swift in Sources */,
 				A3984C88226223BB00AA81B9 /* StoryTypeOrder.swift in Sources */,
+				A3CC8F322263497A0029EA52 /* MainViewState.swift in Sources */,
 				A3C8ADB1225BD803001717DC /* RequestResponse.swift in Sources */,
 				A3C8AD75225BBA55001717DC /* BaseRouter.swift in Sources */,
 				A3CC8F0E226290E40029EA52 /* HTMLIconURLParser.swift in Sources */,
@@ -768,6 +779,7 @@
 				A3EE7340225FC9CC00F5A12B /* Icon.swift in Sources */,
 				A3C8AD44225BB76C001717DC /* AppDelegate.swift in Sources */,
 				A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */,
+				A3CC8F3622634DBA0029EA52 /* UIViewController+Alert.swift in Sources */,
 				A3EE71C2225D20D900F5A12B /* UITableViewCell+Identifier.swift in Sources */,
 				A3CC8F07226265970029EA52 /* RootIconRequest.swift in Sources */,
 				A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */,
