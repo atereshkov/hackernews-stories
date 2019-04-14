@@ -46,7 +46,7 @@ final class ScanManager: ScanManagerProtocol {
         }
         
         let scanHTMLOperation = scanService.scanHTML(url: url) { icons in
-            //items.append(contentsOf: icons)
+            items.append(contentsOf: icons)
         }
         completionBlock.addDependency(scanHTMLOperation)
         scanQueue.addOperation(scanHTMLOperation)

@@ -27,7 +27,7 @@ class IconHTMLScanOperation: AsyncOperation {
             }
             
             let parser = HTMLIconURLParser(html: html)
-            let icons = parser.parse()
+            let icons = parser.parse(baseURL: url)
             
             completion(icons)
         }

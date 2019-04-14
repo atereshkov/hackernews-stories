@@ -64,6 +64,10 @@
 		A3CC8F0922628D990029EA52 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F0822628D990029EA52 /* String.swift */; };
 		A3CC8F0C2262909C0029EA52 /* IconURLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F0B2262909C0029EA52 /* IconURLParser.swift */; };
 		A3CC8F0E226290E40029EA52 /* HTMLIconURLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F0D226290E40029EA52 /* HTMLIconURLParser.swift */; };
+		A3CC8F10226324910029EA52 /* ParserPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F0F226324910029EA52 /* ParserPattern.swift */; };
+		A3CC8F13226326AC0029EA52 /* URLConstructorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F12226326AC0029EA52 /* URLConstructorProtocol.swift */; };
+		A3CC8F15226329320029EA52 /* URLConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F14226329320029EA52 /* URLConstructor.swift */; };
+		A3CC8F1822632BAB0029EA52 /* PatternProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CC8F1722632BAB0029EA52 /* PatternProvider.swift */; };
 		A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */; };
 		A3EE71BA225D1D3A00F5A12B /* JSONDecoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */; };
 		A3EE71BC225D1DD700F5A12B /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */; };
@@ -154,6 +158,10 @@
 		A3CC8F0822628D990029EA52 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A3CC8F0B2262909C0029EA52 /* IconURLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconURLParser.swift; sourceTree = "<group>"; };
 		A3CC8F0D226290E40029EA52 /* HTMLIconURLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLIconURLParser.swift; sourceTree = "<group>"; };
+		A3CC8F0F226324910029EA52 /* ParserPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserPattern.swift; sourceTree = "<group>"; };
+		A3CC8F12226326AC0029EA52 /* URLConstructorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructorProtocol.swift; sourceTree = "<group>"; };
+		A3CC8F14226329320029EA52 /* URLConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructor.swift; sourceTree = "<group>"; };
+		A3CC8F1722632BAB0029EA52 /* PatternProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternProvider.swift; sourceTree = "<group>"; };
 		A3EE71B6225D1BF300F5A12B /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		A3EE71B9225D1D3A00F5A12B /* JSONDecoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderService.swift; sourceTree = "<group>"; };
 		A3EE71BB225D1DD700F5A12B /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
@@ -484,10 +492,30 @@
 		A3CC8F0A226290840029EA52 /* parser */ = {
 			isa = PBXGroup;
 			children = (
+				A3CC8F1622632BA10029EA52 /* provider */,
+				A3CC8F11226326A00029EA52 /* constructor */,
 				A3CC8F0B2262909C0029EA52 /* IconURLParser.swift */,
 				A3CC8F0D226290E40029EA52 /* HTMLIconURLParser.swift */,
+				A3CC8F0F226324910029EA52 /* ParserPattern.swift */,
 			);
 			path = parser;
+			sourceTree = "<group>";
+		};
+		A3CC8F11226326A00029EA52 /* constructor */ = {
+			isa = PBXGroup;
+			children = (
+				A3CC8F12226326AC0029EA52 /* URLConstructorProtocol.swift */,
+				A3CC8F14226329320029EA52 /* URLConstructor.swift */,
+			);
+			path = constructor;
+			sourceTree = "<group>";
+		};
+		A3CC8F1622632BA10029EA52 /* provider */ = {
+			isa = PBXGroup;
+			children = (
+				A3CC8F1722632BAB0029EA52 /* PatternProvider.swift */,
+			);
+			path = provider;
 			sourceTree = "<group>";
 		};
 		A3EE71B5225D1BDF00F5A12B /* cell */ = {
@@ -656,6 +684,7 @@
 				A3C8AD9C225BCB4C001717DC /* ResponseDataType.swift in Sources */,
 				A3C8ADAB225BD627001717DC /* RequestExecutorFactory.swift in Sources */,
 				A311224222615698008DF33E /* AsyncOperation.swift in Sources */,
+				A3CC8F15226329320029EA52 /* URLConstructor.swift in Sources */,
 				A3C8ADA0225BCB8D001717DC /* RequestParameters.swift in Sources */,
 				A3EE71CA225D24C300F5A12B /* MainViewTableDatasource.swift in Sources */,
 				A3EE71CF225D378900F5A12B /* RequestOperation.swift in Sources */,
@@ -677,6 +706,7 @@
 				A3C8ADAD225BD66D001717DC /* NetworkRequestExecutor.swift in Sources */,
 				A3C8AD9E225BCB6C001717DC /* RequestHTTPMethod.swift in Sources */,
 				A3EE71C0225D207300F5A12B /* UITableView+Cell.swift in Sources */,
+				A3CC8F10226324910029EA52 /* ParserPattern.swift in Sources */,
 				A3EE7348225FD7D900F5A12B /* ImageCacheService.swift in Sources */,
 				A3EE71C5225D233800F5A12B /* ConsoleLog.swift in Sources */,
 				A3C8AD6D225BB9F3001717DC /* AppRouterProtocol.swift in Sources */,
@@ -692,8 +722,10 @@
 				A3CC8F07226265970029EA52 /* RootIconRequest.swift in Sources */,
 				A3EE71B7225D1BF300F5A12B /* MainViewCell.swift in Sources */,
 				A3C8AD8A225BBD97001717DC /* MainViewModelType.swift in Sources */,
+				A3CC8F13226326AC0029EA52 /* URLConstructorProtocol.swift in Sources */,
 				A3C8AD84225BBCDD001717DC /* MainViewModel.swift in Sources */,
 				A311224C2261F9AD008DF33E /* ScanService.swift in Sources */,
+				A3CC8F1822632BAB0029EA52 /* PatternProvider.swift in Sources */,
 				A3C8ADA5225BD13C001717DC /* StoryRequest.swift in Sources */,
 				A311224A2261F127008DF33E /* BlockRequestOperation.swift in Sources */,
 				A3C8AD92225BBE5D001717DC /* UINavigationItem.swift in Sources */,
