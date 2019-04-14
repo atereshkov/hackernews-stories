@@ -25,6 +25,7 @@ final class Session: SessionType {
         }()
     }
     
+    /// Returns an service from container if it can be resolved, otherwise will produce fatalError, so be sure that service is registered and that is tested before resolving
     func resolve<T>() -> T {
         guard let service: T = container.getService() else {
             fatalError("Service is not registered '\(String(describing: T.self))'")

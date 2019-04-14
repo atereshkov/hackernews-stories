@@ -19,6 +19,8 @@ final class ScanService: ScanServiceProtocol {
         
     }
     
+    // MARK: Public API
+    
     /// Parse the page HTML and scan `<head>` section for meta information
     func scanHTML(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation {
         let scanOperation = IconHTMLScanOperation(url: url) { icons in
