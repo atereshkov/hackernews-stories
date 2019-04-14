@@ -25,7 +25,8 @@ extension MainViewTableViewDatasource: UITableViewDataSource {
         guard let item = viewModel?.outputs.item(for: indexPath.row) else { return UITableViewCell() }
         cell.update(with: item)
         let icon = viewModel?.outputs.icon(for: indexPath.row)
-        cell.setIcon(icon)
+        let placeholderImage = viewModel?.outputs.noImagePlaceholder
+        cell.setIcon(icon, noImage: placeholderImage)
         viewModel?.inputs.cellForRowCalled(at: indexPath)
         return cell
     }

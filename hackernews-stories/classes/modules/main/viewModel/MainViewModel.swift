@@ -45,6 +45,10 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
         return items.count
     }
     
+    var noImagePlaceholder: UIImage? {
+        return UIImage(named: "no-image")
+    }
+    
     // MARK: MainViewModelCallbacksType
     
     var reloadItems: (() -> Void)?

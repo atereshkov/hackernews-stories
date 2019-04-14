@@ -30,9 +30,9 @@ final class MainViewCell: UITableViewCell {
         hostLabel.text = item.host
     }
     
-    func setIcon(_ icon: IconProtocol?) {
+    func setIcon(_ icon: IconProtocol?, noImage: UIImage? = nil) {
         if let icon = icon {
-            iconImageView.loadImage(with: icon.url.absoluteString)
+            iconImageView.loadImage(with: icon.url.absoluteString, errorImage: noImage)
             iconImageView.alpha = 0
             UIView.animate(withDuration: 0.1, animations: { [weak self] in
                 self?.iconImageView.alpha = 1.0
