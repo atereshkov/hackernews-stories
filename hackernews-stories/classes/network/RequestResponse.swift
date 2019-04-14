@@ -18,6 +18,11 @@ enum RequestResponse {
     init(_ response: ResponseOutput, for request: RequestData) {
         let acceptableStatusCodes: [Int] = [200, 201]
         
+        if let err = response.error as? URLError, err.code == URLError.Code.notConnectedToInternet {
+            self = .error(response.response?.statusCode, NetworkError.noInternetConnection)
+            return
+        }
+        
         let statusCode = response.response?.statusCode ?? 0
         guard acceptableStatusCodes.contains(statusCode), response.error == nil else {
             self = .error(response.response?.statusCode, response.error)

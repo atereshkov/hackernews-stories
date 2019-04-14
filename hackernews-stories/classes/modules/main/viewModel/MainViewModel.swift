@@ -15,6 +15,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
         static let paginationLimit: Int = 20
         static let preferredIconType: IconType = .apple
         static let sortOrder: StoryTypeOrder = .score
+        static let fullTimeFormat = "dd-MM-yyyy HH:mm"
     }
     
     var inputs: MainViewModelInputsType { return self }
@@ -45,11 +46,16 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
         return items.count
     }
     
+    var noImagePlaceholder: UIImage? {
+        return UIImage(named: "no-image")
+    }
+    
     // MARK: MainViewModelCallbacksType
     
     var reloadItems: (() -> Void)?
     var showLoading: ((Bool) -> Void)?
     var reloadRows: (([IndexPath], UITableView.RowAnimation) -> Void)?
+    var updateState: ((MainViewState) -> Void)?
     
 }
 
@@ -59,10 +65,13 @@ private extension MainViewModel {
         showLoading?(true)
         storyService.getBestStoriesIds() { [weak self] stories, error in
             self?.showLoading?(false)
-            guard let stories = stories else {
-                self?.showLoading?(false)
+            
+            if let error = error as? NetworkError, error == .noInternetConnection {
+                self?.updateState?(.noInternet)
                 return
             }
+            
+            guard let stories = stories else { return }
             self?.storiesIds = stories
             self?.totalItemsCount = stories.count
             let ids = Array(stories.prefix(limit))
@@ -88,7 +97,9 @@ private extension MainViewModel {
     func startIconScan(indexPath: IndexPath, item: StoryType, preferredIcontType: IconType) {
         guard itemImages[item.id] == nil else { return }
         scanManager.scan(indexPath: indexPath, item: item) { [weak self] icons, indexPath in
-            self?.itemImages[item.id] = icons.first(where: { $0.type == preferredIcontType })
+            let prefferedIcon = icons.first(where: { $0.type == preferredIcontType })
+            let icon = prefferedIcon ?? icons.first
+            self?.itemImages[item.id] = icon
             self?.reloadRows?([indexPath], .none)
         }
     }
@@ -151,6 +162,14 @@ extension MainViewModel: MainViewModelOutputsType {
         guard let item = item(for: index) else { return nil }
         let itemImage = itemImages.first(where: { $0.key == item.id })?.value
         return itemImage
+    }
+    
+    func timeAgo(for index: Int) -> String? {
+        guard let item = item(for: index), let date = item.creationDate else { return nil }
+        let formatter = DateFormatters.with(format: Constants.fullTimeFormat)
+        let timeAgoProvider = TimeAgoProvider(date: date, fullTimeFormatter: formatter)
+        let timeAgo = timeAgoProvider.timeAgo()
+        return timeAgo
     }
     
 }

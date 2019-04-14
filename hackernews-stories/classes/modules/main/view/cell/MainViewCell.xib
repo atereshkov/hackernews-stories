@@ -36,9 +36,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXi-v0-s6i">
-                        <rect key="frame" x="99.5" y="61.5" width="324.5" height="13"/>
+                        <rect key="frame" x="99.5" y="61.5" width="26" height="13"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4Z-6n-c0D">
+                        <rect key="frame" x="424" y="74.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -47,8 +53,11 @@
                     <constraint firstAttribute="bottom" secondItem="jXi-v0-s6i" secondAttribute="bottom" constant="5" id="7ge-ow-SHd"/>
                     <constraint firstItem="WGj-v3-Eno" firstAttribute="leading" secondItem="ZS8-vx-AqD" secondAttribute="leading" constant="15" id="8f9-Y0-y0k"/>
                     <constraint firstItem="WGj-v3-Eno" firstAttribute="top" secondItem="ZS8-vx-AqD" secondAttribute="top" constant="5" id="BA7-tT-1Vg"/>
-                    <constraint firstAttribute="trailing" secondItem="jXi-v0-s6i" secondAttribute="trailing" constant="15" id="Fc1-oA-BSQ"/>
+                    <constraint firstItem="v4Z-6n-c0D" firstAttribute="width" relation="lessThanOrEqual" secondItem="ZS8-vx-AqD" secondAttribute="width" multiplier="1:3" id="Ff1-sI-BLK"/>
+                    <constraint firstItem="v4Z-6n-c0D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jXi-v0-s6i" secondAttribute="trailing" constant="5" id="JGP-0L-lc5"/>
+                    <constraint firstAttribute="trailing" secondItem="v4Z-6n-c0D" secondAttribute="trailing" constant="15" id="POv-xF-q7l"/>
                     <constraint firstItem="RDw-Cw-L3c" firstAttribute="leading" secondItem="WGj-v3-Eno" secondAttribute="trailing" constant="15" id="UQ1-mu-e3K"/>
+                    <constraint firstAttribute="bottom" secondItem="v4Z-6n-c0D" secondAttribute="bottom" constant="5" id="Waf-VV-jC1"/>
                     <constraint firstItem="jXi-v0-s6i" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RDw-Cw-L3c" secondAttribute="bottom" constant="5" id="ab5-EM-OYa"/>
                     <constraint firstAttribute="bottom" secondItem="WGj-v3-Eno" secondAttribute="bottom" constant="5" id="obJ-av-LlW"/>
                     <constraint firstItem="TCC-KB-SH8" firstAttribute="centerY" secondItem="WGj-v3-Eno" secondAttribute="centerY" id="u8p-1l-Qdd"/>
@@ -61,6 +70,7 @@
                 <outlet property="hostLabel" destination="jXi-v0-s6i" id="5oe-Tt-aYu"/>
                 <outlet property="iconImageView" destination="WGj-v3-Eno" id="oOu-oB-cZ2"/>
                 <outlet property="loadingSpinner" destination="TCC-KB-SH8" id="QIx-Zq-79F"/>
+                <outlet property="timeLabel" destination="v4Z-6n-c0D" id="wvc-dT-DI2"/>
                 <outlet property="titleLabel" destination="RDw-Cw-L3c" id="JKJ-Qc-47Y"/>
             </connections>
             <point key="canvasLocation" x="535.50724637681162" y="7.3660714285714279"/>

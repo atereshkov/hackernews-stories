@@ -64,7 +64,7 @@ final class StoryService: StoryServiceProtocol {
     func getItems(ids: [Int], completion: @escaping ([StoryType], Error?) -> Void) {
         var items: [StoryType] = []
         
-        let completionBlock = BlockOperation { [weak self] in
+        let completionBlock = BlockOperation {
             DispatchQueue.main.async {
                 completion(items, nil)
             }
@@ -72,7 +72,7 @@ final class StoryService: StoryServiceProtocol {
         
         for id in ids {
             let request = StoryRequest.getStory(id: id)
-            let operation = RequestOperation<Story>(executor: requestExecutor, request: request) { [weak self] story, error in
+            let operation = RequestOperation<Story>(executor: requestExecutor, request: request) { story, error in
                 if let error = error {
                     ConsoleLog.e(error)
                 }

@@ -14,6 +14,7 @@ final class MainViewCell: UITableViewCell {
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var hostLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,9 +31,9 @@ final class MainViewCell: UITableViewCell {
         hostLabel.text = item.host
     }
     
-    func setIcon(_ icon: IconProtocol?) {
+    func setIcon(_ icon: IconProtocol?, noImage: UIImage? = nil) {
         if let icon = icon {
-            iconImageView.loadImage(with: icon.url.absoluteString)
+            iconImageView.loadImage(with: icon.url.absoluteString, errorImage: noImage)
             iconImageView.alpha = 0
             UIView.animate(withDuration: 0.1, animations: { [weak self] in
                 self?.iconImageView.alpha = 1.0
@@ -46,6 +47,10 @@ final class MainViewCell: UITableViewCell {
             loadingSpinner.alpha = 1.0
             loadingSpinner.startAnimating()
         }
+    }
+    
+    func setTime(_ time: String?) {
+        timeLabel.text = time
     }
     
 }

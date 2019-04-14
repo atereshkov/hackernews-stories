@@ -27,7 +27,7 @@ extension UIImageView {
     // MARK: Public API
     
     /// Asynchronously loads image from the specified URL
-    func loadImage(with urlString: String) {
+    func loadImage(with urlString: String, errorImage: UIImage? = nil) {
         weak var oldTask = currentTask
         currentTask = nil
         oldTask?.cancel()
@@ -50,6 +50,9 @@ extension UIImageView {
             
             guard let data = data, let downloadedImage = UIImage(data: data) else {
                 ConsoleLog.e("Image downloaded, but error occured during extracting")
+                DispatchQueue.main.async {
+                    self?.image = errorImage
+                }
                 return
             }
             

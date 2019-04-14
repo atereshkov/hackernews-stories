@@ -11,4 +11,5 @@ import Foundation
 enum NetworkError: Error {
     case incorrectInput
     case noData
+    case noInternetConnection
 }

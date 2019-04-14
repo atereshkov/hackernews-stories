@@ -9,7 +9,8 @@
 import Foundation
 
 protocol ScanServiceProtocol {
-    func scan(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation
+    func scanHTML(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation
+    func scanFavicon(data: RequestData, completion: @escaping (IconProtocol?) -> Void) -> Operation
 }
 
 final class ScanService: ScanServiceProtocol {
@@ -18,11 +19,22 @@ final class ScanService: ScanServiceProtocol {
         
     }
     
-    func scan(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation {
-        let scanOperation = IconScanOperation(url: url) { [weak self] icons in
+    // MARK: Public API
+    
+    /// Parse the page HTML and scan `<head>` section for meta information
+    func scanHTML(url: URL, completion: @escaping ([IconProtocol]) -> Void) -> Operation {
+        let scanOperation = IconHTMLScanOperation(url: url) { icons in
             completion(icons)
         }
         return scanOperation
+    }
+    
+    /// Check whether `/favicon.ico` exists
+    func scanFavicon(data: RequestData, completion: @escaping (IconProtocol?) -> Void) -> Operation {
+        let rootFaviconOperation = ScanRootFaviconOperation(data: data) { icon in
+            completion(icon)
+        }
+        return rootFaviconOperation
     }
     
 }

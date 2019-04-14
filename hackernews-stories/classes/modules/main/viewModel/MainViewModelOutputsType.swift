@@ -7,9 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainViewModelOutputsType {
     var itemsCount: Int { get }
+    var noImagePlaceholder: UIImage? { get }
+    
     func item(for index: Int) -> StoryType?
     func icon(for index: Int) -> IconProtocol?
+    func timeAgo(for index: Int) -> String?
 }
