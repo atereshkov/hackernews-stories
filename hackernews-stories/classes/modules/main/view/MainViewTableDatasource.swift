@@ -28,6 +28,8 @@ extension MainViewTableViewDatasource: UITableViewDataSource {
         let placeholderImage = viewModel?.outputs.noImagePlaceholder
         cell.setIcon(icon, noImage: placeholderImage)
         viewModel?.inputs.cellForRowCalled(at: indexPath)
+        let timeAgo = viewModel?.outputs.timeAgo(for: indexPath.row)
+        cell.setTime(timeAgo)
         return cell
     }
     

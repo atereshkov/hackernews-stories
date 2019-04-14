@@ -14,6 +14,7 @@ final class MainViewCell: UITableViewCell {
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var hostLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,6 +47,10 @@ final class MainViewCell: UITableViewCell {
             loadingSpinner.alpha = 1.0
             loadingSpinner.startAnimating()
         }
+    }
+    
+    func setTime(_ time: String?) {
+        timeLabel.text = time
     }
     
 }

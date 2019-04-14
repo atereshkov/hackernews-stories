@@ -15,6 +15,7 @@ final class MainViewModel: BaseViewModel<MainRouter>, MainViewModelType {
         static let paginationLimit: Int = 20
         static let preferredIconType: IconType = .apple
         static let sortOrder: StoryTypeOrder = .score
+        static let fullTimeFormat = "dd-MM-yyyy HH:mm"
     }
     
     var inputs: MainViewModelInputsType { return self }
@@ -157,6 +158,14 @@ extension MainViewModel: MainViewModelOutputsType {
         guard let item = item(for: index) else { return nil }
         let itemImage = itemImages.first(where: { $0.key == item.id })?.value
         return itemImage
+    }
+    
+    func timeAgo(for index: Int) -> String? {
+        guard let item = item(for: index), let date = item.creationDate else { return nil }
+        let formatter = DateFormatters.with(format: Constants.fullTimeFormat)
+        let timeAgoProvider = TimeAgoProvider(date: date, fullTimeFormatter: formatter)
+        let timeAgo = timeAgoProvider.timeAgo()
+        return timeAgo
     }
     
 }
